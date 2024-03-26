@@ -1,0 +1,9 @@
+This file will contain some of the ideas for graphs that I want to make with the data. 
+
+number of people missing by year - or decade? 
+States with the most missing people 
+-most common ages of people missing 
+-Sex of people missing - allow user to select decades?
+-Graph of Volume - Easter or Western US
+
+data set only has 5 rows that appear to have all the data - quite sad...
