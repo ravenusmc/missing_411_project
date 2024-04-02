@@ -1,5 +1,18 @@
 <template>
   <div>
+
+    <section>
+
+      <div>
+
+      </div>
+
+      <div>
+        
+      </div>
+
+    </section>
+
   </div>
 </template>
 
@@ -13,3 +26,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+section {
+  display: grid; 
+  grid-template-columns: 10% 90%;
+  border: 2px solid red;
+}
+
+</style>
