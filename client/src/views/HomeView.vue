@@ -3,9 +3,6 @@
 
     <section>
 
-      <div>
-
-      </div>
 
       <div>
         
