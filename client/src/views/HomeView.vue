@@ -1,6 +1,8 @@
 <template>
   <div>
 
+    <router-view />
+
     <section>
 
 
