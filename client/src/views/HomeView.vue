@@ -3,6 +3,8 @@
 
     <router-view />
 
+    <!-- decide on navbar --> 
+
     <section>
 
 
