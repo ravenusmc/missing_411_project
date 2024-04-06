@@ -3,6 +3,8 @@
 
 Around 2-3 years ago I was bored one sunday and came across a documentary on Amazon called Missing 411. The show was about people, mostly men, disappearing in national parks. Since I've watched that show I've wanted to do a project on the data. This project is finally the realization of that goal. 
 
+The data for this project is much smalller than I thought so I think that I'll be doing some work using D3.JS with this project with the limited amout of data that I have.
+
 Dataset found at Kaggle here: 
 https://www.kaggle.com/datasets/chronaeon/missing-411-victims
 
