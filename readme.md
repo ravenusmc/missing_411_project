@@ -8,6 +8,8 @@ The data for this project is much smalller than I thought so I think that I'll b
 Dataset found at Kaggle here: 
 https://www.kaggle.com/datasets/chronaeon/missing-411-victims
 
+The dataset only has 59 rows which is very sad and not really that good making any observations about the data.
+
 
 # Getting started
 ### Installing
