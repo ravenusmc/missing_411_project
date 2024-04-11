@@ -7,6 +7,8 @@ class ExamineCSV():
 def __init__(self):
         self.data = pd.read_csv('./data/Missing.csv')
 
+def states_with_most_missing_people():
+
 
 # Graphs to make:
 # number of people missing by year - or decade? 
