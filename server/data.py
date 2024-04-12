@@ -7,6 +7,7 @@ class ExamineCSV():
 def __init__(self):
         self.data = pd.read_csv('./data/Missing.csv')
 
+# Get the top 5 states
 def states_with_most_missing_people():
 
 
