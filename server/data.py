@@ -10,9 +10,12 @@ class ExamineCSV():
     # Get the top 5 states
     def states_with_most_missing_people(self):
         top_5_states = self.data['state/province'].value_counts().head(5)
-        print(top_5_states)
+        top_5_states = pd.DataFrame(list(top_5_states.items()), columns=['State', 'Values'])
+        top_5_states_list = []
+        
+        print(top_5_states.iloc[0,1])
     
-    
+
 
 # Graphs to make:
 # number of people missing by year - or decade? 
