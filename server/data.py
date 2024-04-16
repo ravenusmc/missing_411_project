@@ -12,8 +12,18 @@ class ExamineCSV():
         top_5_states = self.data['state/province'].value_counts().head(5)
         top_5_states = pd.DataFrame(list(top_5_states.items()), columns=['State', 'Values'])
         top_5_states_list = []
-        
-        print(top_5_states.iloc[0,1])
+        columns = ['State', 'Count']
+        top_5_states_list.append(columns)
+        count = 0 
+        while count < len(top_5_states):
+            rows = []
+            state = top_5_states.iloc[count,0]
+            missing_count = int(top_5_states.iloc[count,1])
+            rows.append(state)
+            rows.append(missing_count)
+            top_5_states_list.append(rows)
+            count += 1 
+        return top_5_states_list
     
 
 
