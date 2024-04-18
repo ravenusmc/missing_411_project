@@ -15,10 +15,17 @@ class ExamineCSV():
             top_5_states_list.append([state, count]) 
         return top_5_states_list
     
+    def get_decade(self, date):
+        return str(date.year // 10 * 10) + "s"
+    
     # Gets the number of missing people by decade 
     def number_of_people_missing_by_decade(self):
-        pass
-
+        self.data['dateMissing'] = pd.to_datetime(self.data['dateMissing'], errors='coerce')
+        self.data.dropna(subset=['dateMissing'], inplace=True)
+        self.data['decade'] = self.data['dateMissing'].apply(self.get_decade)
+        # Group by decade and count occurrences
+        decade_counts = self.data.groupby('decade').size()     
+        print(decade_counts)
 
 # Graphs to make:
 # number of people missing by year - or decade? 
@@ -27,4 +34,4 @@ class ExamineCSV():
 # -Graph of Volume - Easter or Western US
 
 obj = ExamineCSV()
-obj.states_with_most_missing_people()
+obj.number_of_people_missing_by_decade()
