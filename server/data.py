@@ -27,7 +27,6 @@ class ExamineCSV():
         decade_counts = self.data.groupby('decade').size()     
         for decade, count in decade_counts.items(): 
             print(decade)
-            input()
 
 # Graphs to make:
 # number of people missing by year - or decade? 
