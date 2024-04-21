@@ -24,12 +24,15 @@ class ExamineCSV():
         self.data.dropna(subset=['dateMissing'], inplace=True)
         self.data['decade'] = self.data['dateMissing'].apply(self.get_decade)
         # Group by decade and count occurrences
-        decade_counts = self.data.groupby('decade').size()     
+        decade_counts = self.data.groupby('decade').size()   
+        missing_by_decade_list = [['Decade', 'Count']]  
         for decade, count in decade_counts.items(): 
-            print(decade)
+            missing_by_decade_list.append([decade, count])
+        print(missing_by_decade_list)
+    
+    
 
 # Graphs to make:
-# number of people missing by year - or decade? 
 # -most common ages of people missing 
 # -Sex of people missing - allow user to select decades?
 # -Graph of Volume - Easter or Western US
