@@ -30,12 +30,20 @@ class ExamineCSV():
             missing_by_decade_list.append([decade, count])
         print(missing_by_decade_list)
     
+    def most_common_ages_of_people_missing(self):
+        top_5_ages = self.data['age'].value_counts().head(5)
+        top_5_ages_list = [['Age', 'Count']]
+        for age, count in top_5_ages.items():
+            top_5_ages_list.append([age, int(count)])
+        print(top_5_ages_list)
     
+    def sex_of_people_missing(self):
+        pass
+
 
 # Graphs to make:
-# -most common ages of people missing 
 # -Sex of people missing - allow user to select decades?
 # -Graph of Volume - Easter or Western US
 
 obj = ExamineCSV()
-obj.number_of_people_missing_by_decade()
+obj.most_common_ages_of_people_missing()
