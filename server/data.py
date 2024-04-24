@@ -43,10 +43,19 @@ class ExamineCSV():
         for sex, count in count_missing_by_sex.items():
             count_missing_by_sex_list.append([sex, int(count)])
         print(count_missing_by_sex_list)
+    
+    def eastern_versus_western_us_data(self):
+        # volume
+        count_western_eastern = self.data['volume'].value_counts().head()
+        count_western_eastern_list = [['Coast', 'Count']]
+        for coast, count in count_western_eastern.items():
+            count_western_eastern_list.append([coast, int(count)])
+        print(count_western_eastern_list)
+        pass
 
 
 # Graphs to make:
 # -Graph of Volume - Easter or Western US
 
 obj = ExamineCSV()
-obj.sex_of_people_missing()
+obj.eastern_versus_western_us_data()
