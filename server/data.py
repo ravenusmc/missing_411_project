@@ -7,7 +7,6 @@ class ExamineCSV():
     def __init__(self):
         self.data = pd.read_csv('./data/Missing.csv')
 
-    # Get the top 5 states
     def states_with_most_missing_people(self):
         top_5_states = self.data['state/province'].value_counts().head(5)
         top_5_states_list = [['State', 'Count']]  # Initialize the list with column headers
@@ -18,7 +17,6 @@ class ExamineCSV():
     def get_decade(self, date):
         return str(date.year // 10 * 10) + "s"
     
-    # Gets the number of missing people by decade 
     def number_of_people_missing_by_decade(self):
         self.data['dateMissing'] = pd.to_datetime(self.data['dateMissing'], errors='coerce')
         self.data.dropna(subset=['dateMissing'], inplace=True)
@@ -51,11 +49,9 @@ class ExamineCSV():
         for coast, count in count_western_eastern.items():
             count_western_eastern_list.append([coast, int(count)])
         print(count_western_eastern_list)
-        pass
 
 
 # Graphs to make:
-# -Graph of Volume - Easter or Western US
 
 obj = ExamineCSV()
 obj.eastern_versus_western_us_data()
