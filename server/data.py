@@ -51,7 +51,5 @@ class ExamineCSV():
         print(count_western_eastern_list)
 
 
-# Graphs to make:
-
 obj = ExamineCSV()
 obj.eastern_versus_western_us_data()
