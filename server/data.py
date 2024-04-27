@@ -12,7 +12,8 @@ class ExamineCSV():
         top_5_states_list = [['State', 'Count']]  # Initialize the list with column headers
         for state, count in top_5_states.items():
             top_5_states_list.append([state, count]) 
-        return top_5_states_list
+        print(top_5_states_list)
+        # return top_5_states_list
     
     def get_decade(self, date):
         return str(date.year // 10 * 10) + "s"
