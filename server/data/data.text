@@ -1,5 +1,7 @@
 This file will contain the static data that I'll use at the start of the project:
 
+Initial Graphs: 
+
 Top 5 states with most missing people: 
 [['State', 'Count'], ['PA', 11], ['MT', 5], ['ID', 4], ['WI', 3], ['OH', 3]]
 
