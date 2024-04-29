@@ -3,12 +3,11 @@
      <router-view />
     <!-- Header area -->
     <div class="about_header">
-      <h1 class="center">About Me</h1>
+      <h1 class="center">My Story</h1>
     </div>
     <!-- End of Header Area -->
 
     <hr />
-
 
     <!-- Start of content area -->
     <div class="about_content_area">
