@@ -43,8 +43,7 @@
         </p>
 
         <p>
-          I love meeting new people and inspiring innovative digital solutions,
-          so feel free to send me an invite; I’d love to connect with you.
+          Feel free to send me an invite; I’d love to connect with you.
         </p>
       </div>
     </div>
