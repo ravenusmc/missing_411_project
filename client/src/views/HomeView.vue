@@ -30,10 +30,5 @@ export default {
 
 <style scoped>
 
-section {
-  display: grid; 
-  grid-template-columns: 10% 90%;
-  border: 2px solid red;
-}
 
 </style>
