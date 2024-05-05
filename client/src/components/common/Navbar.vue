@@ -1,8 +1,8 @@
 <template>
   <div>
     <nav class="navbar">
-      <a href="" class="navlink">Home</a>
-      <a href="" class="navlink">About</a>
+      <a href="" class="navlink"><router-link class='link-style'  to="/">Home</router-link></a>
+      <a href="" class="navlink"><router-link class='link-style' to="/about">About</router-link></a>
       <a href="" class="navlink">The Data</a>
       <a href="" class="navlink right">Sign Up</a>
     </nav>
@@ -13,6 +13,7 @@
 </script>
 
 <style scoped>
+
 .navbar {
 	background-color: #343a40;
 	height: 50px;
@@ -24,10 +25,14 @@ a {
   text-decoration: none;
 }
 
+.link-style {
+  color: white;
+}
+
 .navlink {
 	color: white;
-	font-size: 2rem;
-	margin: 0 30px;
+	font-size: 1.5rem;
+	margin: 10px 15px;
 }
 
 .right {
