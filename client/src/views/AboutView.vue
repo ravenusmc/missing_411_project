@@ -1,13 +1,11 @@
 <template>
   <div>
-     <router-view />
+
     <!-- Header area -->
     <div class="about_header">
-      <h1 class="center">My Story</h1>
+      <h1 class="center title">My Story</h1>
     </div>
     <!-- End of Header Area -->
-
-    <hr />
 
     <!-- Start of content area -->
     <div class="about_content_area">
@@ -49,7 +47,6 @@
     </div>
     <!-- End of content area -->
 
-    <hr />
   </div>
 </template>
 
@@ -61,34 +58,58 @@
   text-align: center;
 }
 
+/* CSS for header area */
+
 .about_header {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
+.title {
+  text-transform: uppercase;
+}
+
+/* CSS for content */
+.about_content_area {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 5% 50px; /* Combine margin properties */
+}
+
+.pic_div {
+  width: 300px;
+  height: 400px; /* Set height to match width */
+  border-radius: 10px;
+  background: url("../assets/images/Cuddy.jpg") center/cover no-repeat; /* Combine background properties */
+}
+
+.bio_div {
+  width: calc(100% - 320px); /* Calculate width based on remaining space */
+  max-width: 600px; /* Limit maximum width */
+}
+
+/* .about_content_area {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 50px;
+}
+
 .pic_div {
   background-image: url("../assets/images/Cuddy.jpg");
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+  width: 300px;
   border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.about_content_area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  margin-bottom: 50px;
-  margin-left: 5%;
-  margin-right: 5%;
-}
+.bio_div {
+  width: 600px;
+} */
 
-@media only all and (max-width: 768px) {
+/* @media only all and (max-width: 768px) {
   .pic_div {
     background-image: url("../assets/images/Cuddy.jpg");
     display: flex;
@@ -102,5 +123,5 @@
     margin-left: 2%;
     margin-right: 2%;
   }
-}
+} */
 </style>
