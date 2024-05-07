@@ -88,40 +88,20 @@
   max-width: 600px; /* Limit maximum width */
 }
 
-/* .about_content_area {
-  display: flex;
-  justify-content: space-around;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 50px;
-}
 
-.pic_div {
-  background-image: url("../assets/images/Cuddy.jpg");
-  width: 300px;
-  border-radius: 10px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+@media only all and (max-width: 768px) {
 
-.bio_div {
-  width: 600px;
-} */
-
-/* @media only all and (max-width: 768px) {
-  .pic_div {
-    background-image: url("../assets/images/Cuddy.jpg");
-    display: flex;
+  .about_content_area {
+    display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid red;
   }
 
-  .about_content_area {
-    grid-template-columns: 1fr;
-    margin-left: 2%;
-    margin-right: 2%;
+  .bio_div {
+    width: 100%;
   }
-} */
+
+}
 </style>
