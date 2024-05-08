@@ -88,15 +88,14 @@
   max-width: 600px; /* Limit maximum width */
 }
 
-
-@media only all and (max-width: 768px) {
+/* Responsive only for mobile screens at this point */
+@media only screen and (max-width: 768px) {
 
   .about_content_area {
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
   }
 
   .bio_div {
