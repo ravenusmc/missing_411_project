@@ -38,4 +38,6 @@ a {
 .right {
 	margin-left: auto;
 }
+
+/* Responsive aspects */
 </style>
