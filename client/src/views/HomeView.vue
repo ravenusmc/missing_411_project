@@ -1,17 +1,13 @@
 <template>
   <div>
-
     <router-view />
-
     <section>
 
+      <div class='main-image'>
 
-      <div>
-        
       </div>
 
     </section>
-
   </div>
 </template>
 
@@ -27,6 +23,12 @@ export default {
 </script>
 
 <style scoped>
+
+.main-image {
+  height: 75vh;
+  background: url("../assets/images/home.jpg") center/cover no-repeat; /* Combine background properties */
+  background-size: cover;
+}
 
 
 </style>

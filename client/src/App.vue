@@ -21,7 +21,7 @@ export default {
 <style>
 
 body {
-	margin: 0;
+	margin: 0
 }
 
 .center {
