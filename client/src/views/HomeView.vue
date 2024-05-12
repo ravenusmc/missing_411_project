@@ -9,17 +9,21 @@
         <h3 class='center'>A Project Examing Missing Person Data</h3>
       </div>
     </div>
+
+    <Midsection />
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import Midsection from '@/components/home/Midsection.vue'
 
 export default {
   name: 'HomeView',
   components: {
-  }
+    Midsection,
+  },
 }
 </script>
 
