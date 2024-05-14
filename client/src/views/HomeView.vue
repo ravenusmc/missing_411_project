@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view />
-    <Jumbo />>
+    <Jumbo />
     <Midsection />
   </div>
 </template>

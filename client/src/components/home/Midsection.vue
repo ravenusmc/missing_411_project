@@ -39,4 +39,22 @@ export default {
 .pic-three {
   background: url("../../assets/images/missing_three.jpg") center/cover no-repeat; /* Combine background properties */
 }
+
+@media only screen and (max-width: 769px) {
+
+  .pic-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .generic-pic-styling {
+    height: 500px;
+    width: 300px;
+    margin: 30px;
+  }
+
+
+}
 </style>

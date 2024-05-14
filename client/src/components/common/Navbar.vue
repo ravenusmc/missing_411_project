@@ -3,7 +3,7 @@
     <nav class="navbar">
       <a href="" class="navlink"><router-link class='link-style'  to="/">Home</router-link></a>
       <a href="" class="navlink"><router-link class='link-style' to="/about">About</router-link></a>
-      <a href="" class="navlink">The Data</a>
+      <a href="" class="navlink"><router-link class='link-style' to="/data">The Data</router-link></a>
       <a href="" class="navlink right">Sign Up</a>
     </nav>
   </div>
