@@ -29,15 +29,15 @@ export default {
 }
 
 .pic-one {
-  background: url("../../assets/images/missing_one.jpg") center/cover no-repeat; /* Combine background properties */
+  background: url("../../assets/images/missing_one.jpg") center/cover no-repeat; 
 }
 
 .pic-two {
-  background: url("../../assets/images/missing_two.jpg") center/cover no-repeat; /* Combine background properties */
+  background: url("../../assets/images/missing_two.jpg") center/cover no-repeat; 
 }
 
 .pic-three {
-  background: url("../../assets/images/missing_three.jpg") center/cover no-repeat; /* Combine background properties */
+  background: url("../../assets/images/missing_three.jpg") center/cover no-repeat; 
 }
 
 @media only screen and (max-width: 769px) {
