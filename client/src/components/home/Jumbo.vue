@@ -16,7 +16,7 @@
 <style scope>
 .main-image {
   height: 80vh;
-  background: url("../../assets/images/home.jpg") center/cover no-repeat; /* Combine background properties */
+  background: url("../../assets/images/home.jpg") center/cover no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
