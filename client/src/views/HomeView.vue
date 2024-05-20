@@ -3,6 +3,7 @@
     <router-view />
     <Jumbo />
     <Midsection />
+    <purpose />
   </div>
 </template>
 
