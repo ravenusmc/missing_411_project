@@ -1,13 +1,20 @@
 <template>
 <div>
-
+	<h3 class='title center'>The Purpose</h3>
 </div>
 </template>
 
 <script>
-
+export default {
+  name: "Purpose",
+};
 </script>
 
-<style>
+<style scoped>
+
+.title {
+	font-size: 2.5rem;
+	text-transform: uppercase;
+}
 
 </style>
