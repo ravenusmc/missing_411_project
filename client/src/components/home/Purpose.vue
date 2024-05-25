@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 class="title center">The Purpose</h3>
-    <div class="paragraph-div">
+    <div class="main-div">
       <p>
         Sometime during Covid or shortly after Covid I watched a documentary on
         Amazon. the documentary was about people who went missing in national
@@ -35,8 +35,8 @@ export default {
   text-transform: uppercase;
 }
 
-.paragraph-div {
-  margin: 100px;
+.main-div {
+  margin: 0 100px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 1.5rem;
@@ -44,8 +44,8 @@ export default {
 }
 
 .picture-div {
-  height: 500px;
-  width: 300px;
+  height: 550px;
+	margin-left: 10px;
   background-size: cover;
 	background: url("../../assets/images/swing.jpg") center/cover no-repeat; 
 }
