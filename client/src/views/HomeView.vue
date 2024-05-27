@@ -4,6 +4,7 @@
     <Jumbo />
     <Midsection />
     <Purpose />
+    <Bottom />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import Jumbo from '@/components/home/Jumbo.vue'
 import Midsection from '@/components/home/Midsection.vue'
 import Purpose from '@/components/home/Purpose.vue'
+import Bottom from '@/components/home/Bottom.vue'
 
 export default {
   name: 'HomeView',
@@ -19,6 +21,7 @@ export default {
     Jumbo,
     Midsection,
     Purpose,
+    Bottom
   },
 }
 </script>
