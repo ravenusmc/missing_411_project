@@ -30,16 +30,26 @@ export default {
   border: 2px solid black;
   border-radius: 50%;
   width: 100px;
-  height: 100px; /* Ensure the height is equal to the width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+.link-appearance {
+  display: block; /* Ensure the link takes the full width of its container */
+  margin: 5px 0; /* Add some margin for spacing */
+}
+
 
 a {
   text-decoration: none;
   text-align: center;
+  color: black;
 }
 
-/* .link-appearance {
-  color: blue;
-} */
+
 </style>
