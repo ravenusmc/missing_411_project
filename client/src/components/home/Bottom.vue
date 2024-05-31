@@ -40,8 +40,8 @@ export default {
 }
 
 .link-appearance {
-  display: block; /* Ensure the link takes the full width of its container */
-  margin: 5px 0; /* Add some margin for spacing */
+  display: block;
+  margin: 5px 0;
 }
 
 
