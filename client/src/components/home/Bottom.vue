@@ -1,11 +1,13 @@
 <template>
   <div>
     <hr />
-    <div class="main-div">
-      <div class="link-div">
-        <a><router-link class="link-appearance" to="/">Login</router-link></a>
-        <hr />
-        <a><router-link class="" to="/">Sign Up</router-link></a>
+    <div class='pic-div'>
+      <div class="main-div">
+        <div class="link-div">
+          <a><router-link class="link-appearance" to="/">Login</router-link></a>
+          <hr />
+          <a><router-link class="" to="/">Sign Up</router-link></a>
+        </div>
       </div>
     </div>
   </div>
@@ -18,8 +20,16 @@ export default {
 </script>
 
 <style scoped>
+.pic-div {
+  height: 80vh;
+  background: url("../../assets/images/home_2.jpg") center/cover no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main-div {
-  margin: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,12 +54,9 @@ export default {
   margin: 5px 0;
 }
 
-
 a {
   text-decoration: none;
   text-align: center;
   color: black;
 }
-
-
 </style>
