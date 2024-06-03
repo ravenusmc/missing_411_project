@@ -19,3 +19,5 @@ Count, by sex, of missing people:
 Count of people missing by coast: 
 [['Coast', 'Count'], ['Eastern', 53], ['Western', 4], ['Devil’s', 1]]
 
+Graphs from previous project github link: 
+https://github.com/ravenusmc/game_study/tree/main/client/src/components/metaanalysis

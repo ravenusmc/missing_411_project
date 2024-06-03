@@ -52,5 +52,5 @@ class ExamineCSV():
         print(count_western_eastern_list)
 
 
-obj = ExamineCSV()
-obj.eastern_versus_western_us_data()
+# obj = ExamineCSV()
+# obj.eastern_versus_western_us_data()

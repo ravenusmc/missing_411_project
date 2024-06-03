@@ -39,14 +39,15 @@ export default {
   padding: 15px;
   border: 2px solid black;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .link-appearance {
@@ -57,6 +58,8 @@ export default {
 a {
   text-decoration: none;
   text-align: center;
-  color: black;
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
 }
 </style>
