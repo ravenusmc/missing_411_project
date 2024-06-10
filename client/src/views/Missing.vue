@@ -4,17 +4,20 @@
 
 	<div class='graph-area'>
 		<TopFiveGraphs />
+		<MissingByDecade />
 	</div>
 </div>
 </template>
 
 <script>
 import TopFiveGraphs from '@/components/graphs/TopFiveGraphs.vue'
+import MissingByDecade	from '@/components/graphs/MissingByDecade.vue'
 
 export default {
 	name: "Missing",
 	components: {
 		TopFiveGraphs,
+		MissingByDecade,
   },
 };
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="graphOne"></div>
+    <div id="graphTwo"></div>
   </div>
 </template>
 
@@ -8,21 +8,20 @@
 import * as d3 from "d3";
 
 export default {
-  name: "TopFiveGraphs",
+  name: "MissingByDecade",
   mounted() {
-    this.createGraphOne();
+    this.createGraphTwo();
   },
   methods: {
-    createGraphOne() {
-
+    createGraphTwo() {
       // set the dimensions and margins of the graph
       let margin = { top: 40, right: 30, bottom: 50, left: 70 };
       let width = 460 - margin.left - margin.right;
       let height = 400 - margin.top - margin.bottom;
 
-      // append the svg object to the div with id "graphOne"
+      // append the svg object to the div with id "graphTwo"
       let svg = d3
-        .select("#graphOne")
+        .select("#graphTwo")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -31,16 +30,18 @@ export default {
 
       // data
       let data = [
-        ["State", "Count"],
-        ["PA", 11],
-        ["MT", 5],
-        ["ID", 4],
-        ["WI", 3],
-        ["OH", 3],
+        ["1860s", 1],
+        ["1870s", 1],
+        ["1880s", 5],
+        ["1890s", 5],
+        ["1900s", 6],
+        ["1910s", 9],
+        ["1920s", 8],
+        ["1930s", 18],
+        ["1950s", 2],
+        ["1990s", 1],
+        ["2010s", 1],
       ];
-
-      // Remove the header row
-      data = data.slice(1);
 
       // Add X axis
       let x = d3
@@ -113,7 +114,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 10)
-        .text("State");
+        .text("Decade");
 
       // Add Y axis label
       svg
@@ -132,17 +133,13 @@ export default {
         .attr("y", -margin.top / 2)
         .attr("font-size", "16px")
         .attr("font-weight", "bold")
-        .text("States with Most Missing People");
+        .text("Missing People by Decade");
     },
   },
 };
 </script>
 
 <style scoped>
-#graphOne {
-  margin: 20px;
-}
-
 .tooltip {
   position: absolute;
   text-align: center;
