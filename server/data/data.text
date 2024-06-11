@@ -21,3 +21,21 @@ Count of people missing by coast:
 
 Graphs from previous project github link: 
 c
+
+
+
+Back up: 
+
+Number of people missing by decade: 
+[['Decade', 'Count'], ['1860s', 1], ['1870s', 1], ['1880s', 5], 
+['1890s', 5], ['1900s', 6], ['1910s', 9], ['1920s', 8], ['1930s', 18], 
+['1950s', 2], ['1990s', 1], ['2010s', 1]]
+
+Most common age of missing people:
+[['Age', 'Count'], [3.0, 7], [2.0, 6], [4.0, 6], [1.75, 3], [7.0, 3]]
+
+Count, by sex, of missing people: 
+[['Sex', 'Count'], ['M', 44], ['F', 14]]
+
+Count of people missing by coast: 
+[['Coast', 'Count'], ['Eastern', 53], ['Western', 4], ['Devil’s', 1]]
