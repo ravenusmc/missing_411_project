@@ -52,19 +52,97 @@ export default {
         .scaleLinear()
         .domain([0, d3.max(data, (d) => d[1])])
         .range([height, 0]);
-			svg.append("g").call(d3.axisLeft(y));
-			
-			// Add X axis label
+      svg.append("g").call(d3.axisLeft(y));
+
+      // Create a tooltip div
+      let tooltip = d3
+        .select("#graphOne")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("position", "absolute");
+
+      // Tooltip functions
+      let showTooltip = function (event, d) {
+        tooltip
+          .style("opacity", 1)
+          .html("Age: " + d[0] + "<br>Count: " + d[1])
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+
+      let moveTooltip = function (event, d) {
+        tooltip
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+
+      let hideTooltip = function (event, d) {
+        tooltip.style("opacity", 0);
+      };
+
+      // Add bars
+      svg
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", (d) => x(d[0]))
+        .attr("y", (d) => y(d[1]))
+        .attr("width", x.bandwidth())
+        .attr("height", (d) => height - y(d[1]))
+        .attr("fill", "#0B90CA")
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip);
+
+      // Add X axis label
       svg
         .append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 10)
         .text("Top Five Most Common Ages of Missing");
+      
+      // Add Y axis label
+      svg
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .text("Age");
+
+      // Add title
+      svg
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2)
+        .attr("font-size", "16px")
+        .attr("font-weight", "bold")
+        .text("Top 5 Most Common Ages");
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
+.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 80px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
 </style>

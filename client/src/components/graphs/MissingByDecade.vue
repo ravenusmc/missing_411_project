@@ -78,7 +78,7 @@ export default {
       let showTooltip = function (event, d) {
         tooltip
           .style("opacity", 1)
-          .html("State: " + d[0] + "<br>Count: " + d[1])
+          .html("Decade: " + d[0] + "<br>Count: " + d[1])
           .style("left", event.pageX + 10 + "px")
           .style("top", event.pageY - 10 + "px");
       };
