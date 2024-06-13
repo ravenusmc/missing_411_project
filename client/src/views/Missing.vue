@@ -6,6 +6,7 @@
 		<TopFiveGraphs />
 		<MissingByDecade />
 		<CommonAgeMissing />
+		<Sex />
 	</div>
 </div>
 </template>
@@ -14,6 +15,7 @@
 import TopFiveGraphs from '@/components/graphs/TopFiveGraphs.vue'
 import MissingByDecade	from '@/components/graphs/MissingByDecade.vue'
 import CommonAgeMissing	from '@/components/graphs/CommonAgeMissing.vue'
+import Sex from '@/components/graphs/Sex.vue'
 
 export default {
 	name: "Missing",
@@ -21,6 +23,7 @@ export default {
 		TopFiveGraphs,
 		MissingByDecade,
 		CommonAgeMissing,
+		Sex
   },
 };
 
