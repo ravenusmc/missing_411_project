@@ -10,7 +10,7 @@ import * as d3 from "d3";
 export default {
   name: "CommonAge",
   mounted() {
-    this.createGraphThree();
+    this.createGraphFour();
   },
   methods: {
     createGraphThree() {
@@ -18,11 +18,10 @@ export default {
       let margin = { top: 40, right: 30, bottom: 50, left: 70 };
       let width = 460 - margin.left - margin.right;
 			let height = 400 - margin.top - margin.bottom;
-			
-
-      // append the svg object to the div with id "graphTwo"
+		
+      // append the svg object to the div with id "graphFour"
       let svg = d3
-        .select("#graphThree")
+        .select("#graphFour")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
