@@ -139,9 +139,6 @@ export default {
 </script>
 
 <style scoped>
-#graphOne {
-  margin: 20px;
-}
 
 .tooltip {
   position: absolute;

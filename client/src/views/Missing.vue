@@ -35,4 +35,12 @@ export default {
 	grid-template-columns: 1fr 1fr;
 }
 
+@media only screen and (max-width: 769px) {
+
+  .graph-area {
+    grid-template-columns: 1fr;
+  }
+
+}
+
 </style>

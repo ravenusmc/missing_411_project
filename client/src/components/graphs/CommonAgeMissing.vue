@@ -107,7 +107,7 @@ export default {
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 10)
-        .text("Top Five Most Common Ages of Missing");
+        .text("Age");
       
       // Add Y axis label
       svg
