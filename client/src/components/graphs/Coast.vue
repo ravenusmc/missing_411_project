@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="graphFour"></div>
+    <div id="graphFive"></div>
   </div>
 </template>
 
@@ -8,20 +8,20 @@
 import * as d3 from "d3";
 
 export default {
-  name: "CommonAge",
+  name: "Coast",
   mounted() {
-    this.createGraphFour();
+    this.createGraphFive();
   },
   methods: {
-    createGraphFour() {
+    createGraphFive() {
       // set the dimensions and margins of the graph
-      let margin = { top: 40, right: 30, bottom: 50, left: 70 };
+      let margin = { top: 50, right: 30, bottom: 50, left: 70 };
       let width = 460 - margin.left - margin.right;
       let height = 400 - margin.top - margin.bottom;
 
-      // append the svg object to the div with id "graphFour"
+      // append the svg object to the div with id "graphFive"
       let svg = d3
-        .select("#graphFour")
+        .select("#graphFive")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -29,8 +29,8 @@ export default {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       let data = [
-        ["M", 44],
-        ["F", 14],
+        ["Eastern", 53],
+        ["Western", 4],
       ];
 
       // Add X axis
@@ -51,38 +51,6 @@ export default {
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
 
-      // Create a tooltip div
-      let tooltip = d3
-        .select("#graphOne")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "5px")
-        .style("padding", "10px")
-        .style("position", "absolute");
-
-      // Tooltip functions
-      let showTooltip = function (event, d) {
-        tooltip
-          .style("opacity", 1)
-          .html("Sex: " + d[0] + "<br>Count: " + d[1])
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px");
-      };
-
-      let moveTooltip = function (event, d) {
-        tooltip
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px");
-      };
-
-      let hideTooltip = function (event, d) {
-        tooltip.style("opacity", 0);
-      };
-
       // Add bars
       svg
         .selectAll("rect")
@@ -93,10 +61,10 @@ export default {
         .attr("y", (d) => y(d[1]))
         .attr("width", x.bandwidth())
         .attr("height", (d) => height - y(d[1]))
-        .attr("fill", "#0B90CA")
-        .on("mouseover", showTooltip)
-        .on("mousemove", moveTooltip)
-        .on("mouseleave", hideTooltip);
+        .attr("fill", "#0B90CA");
+      // .on("mouseover", showTooltip)
+      // .on("mousemove", moveTooltip)
+      // .on("mouseleave", hideTooltip);
 
       // Add X axis label
       svg
@@ -104,7 +72,9 @@ export default {
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 10) // Adjusted y position to be within the SVG
-        .text("Sex");
+        .attr("font-size", "12px")
+        .attr("font-weight", "bold")
+        .text("Coast");
 
       // Add Y axis label
       svg
@@ -113,6 +83,8 @@ export default {
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
         .attr("y", -margin.left + 20)
+        .attr("font-size", "12px")
+        .attr("font-weight", "bold")
         .text("Count");
 
       // Add title
@@ -120,17 +92,11 @@ export default {
         .append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
-        .attr("y", -margin.top / 2)
+        .attr("y", -margin.top / 2 + 10) // Adjusted y position to be within the SVG
         .attr("font-size", "16px")
         .attr("font-weight", "bold")
-        .text("Missing by Sex");
+        .text("Missing by Coast");
     },
   },
 };
 </script>
-
-<style scoped>
-#graphFour {
-  height: 500px;
-}
-</style>

@@ -1,12 +1,13 @@
 <template>
 <div>
-	<h1>Data</h1>
+	<h2 class='title center'>The Data</h2>
 
 	<div class='graph-area'>
 		<TopFiveGraphs />
 		<MissingByDecade />
 		<CommonAgeMissing />
 		<Sex />
+		<Coast />
 	</div>
 </div>
 </template>
@@ -16,6 +17,7 @@ import TopFiveGraphs from '@/components/graphs/TopFiveGraphs.vue'
 import MissingByDecade	from '@/components/graphs/MissingByDecade.vue'
 import CommonAgeMissing	from '@/components/graphs/CommonAgeMissing.vue'
 import Sex from '@/components/graphs/Sex.vue'
+import Coast from '@/components/graphs/Coast.vue'
 
 export default {
 	name: "Missing",
@@ -23,19 +25,25 @@ export default {
 		TopFiveGraphs,
 		MissingByDecade,
 		CommonAgeMissing,
-		Sex
+		Sex,
+		Coast, 
   },
 };
 
 </script>
 
-<style scope>
+<style scoped>
+.title {
+	text-transform: uppercase;
+	font-size: 2em;
+}
+
 .graph-area {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 850px) {
 
   .graph-area {
     grid-template-columns: 1fr;

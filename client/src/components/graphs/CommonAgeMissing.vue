@@ -133,16 +133,7 @@ export default {
 </script>
 
 <style scoped>
-.tooltip {
-  position: absolute;
-  text-align: center;
-  width: 80px;
-  height: 28px;
-  padding: 2px;
-  font: 12px sans-serif;
-  background: lightsteelblue;
-  border: 0px;
-  border-radius: 8px;
-  pointer-events: none;
+#graphThree {
+  height: 500px;
 }
 </style>
