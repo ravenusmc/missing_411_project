@@ -128,9 +128,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#graphFour {
-  height: 500px;
-}
-</style>

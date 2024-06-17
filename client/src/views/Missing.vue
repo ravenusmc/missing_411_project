@@ -9,6 +9,8 @@
 		<Sex />
 		<Coast />
 	</div>
+	<hr>
+	<Map />
 </div>
 </template>
 
@@ -18,6 +20,7 @@ import MissingByDecade	from '@/components/graphs/MissingByDecade.vue'
 import CommonAgeMissing	from '@/components/graphs/CommonAgeMissing.vue'
 import Sex from '@/components/graphs/Sex.vue'
 import Coast from '@/components/graphs/Coast.vue'
+import Map from '@/components/graphs/Map.vue'
 
 export default {
 	name: "Missing",
@@ -27,9 +30,9 @@ export default {
 		CommonAgeMissing,
 		Sex,
 		Coast, 
+		Map,
   },
 };
-
 </script>
 
 <style scoped>

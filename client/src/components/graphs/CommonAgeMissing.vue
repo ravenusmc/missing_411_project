@@ -133,7 +133,4 @@ export default {
 </script>
 
 <style scoped>
-#graphThree {
-  height: 500px;
-}
 </style>
