@@ -15,6 +15,16 @@ class ExamineCSV():
         print(top_5_states_list)
         # return top_5_states_list
     
+    def get_min_year(self):
+        min_date = self.data['dateMissing'].min()
+        min_year = min_date.year
+        result_year = min_year - 3
+        print(result_year)
+        
+    
+    def get_max_year(self):
+        print(self.data['dateMissing'].max())
+    
     def get_decade(self, date):
         return str(date.year // 10 * 10) + "s"
     
@@ -52,5 +62,5 @@ class ExamineCSV():
         print(count_western_eastern_list)
 
 
-# obj = ExamineCSV()
-# obj.eastern_versus_western_us_data()
+obj = ExamineCSV()
+obj.get_max_year()

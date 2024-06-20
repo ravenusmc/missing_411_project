@@ -39,7 +39,7 @@ def login():
         login_values['user'] = user
     return jsonify(login_values)
 
-@app.route('/buildGenreGraph', methods=['GET', 'POST'])
+@app.route('/buildMap', methods=['GET', 'POST'])
 def buildGenreGraph():
     if request.method == 'POST':
         requested_data_container = {}

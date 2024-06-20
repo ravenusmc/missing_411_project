@@ -3,7 +3,7 @@
     <form>
       <div>
         <label for="year">Enter Year:</label>
-        <input v-model="year" placeholder="edit me" />
+        <input v-model="year" />
       </div>
       <div class="form-group">
         <button type="button" @click="submitSelectedYear">Submit</button>
@@ -23,14 +23,19 @@ export default {
     };
   },
   methods: {
-    // ...mapActions("csv", ["submitGenreSelectionToServer"]),
+    ...mapActions("missing", ["submitSelectedYearToServer"]),
     submitSelectedYear() {
-			event.preventDefault();
-			console.log(this.year)
-      // const payload = {
-      //   selectedGenres: this.selectedGenres,
-      // };
-      // this.submitGenreSelectionToServer({ payload });
+      event.preventDefault();
+      if (this.year < 1868) {
+        alert("Please Select a year greater than 1868");
+      } else if (this.year > 2010) {
+        alert("Please Select a Year Less than 2010");
+      } else {
+        const payload = {
+          year: this.year,
+        };
+        this.submitSelectedYearToServer({ payload });
+      }
     },
   },
 };
