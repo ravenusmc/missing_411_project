@@ -42,15 +42,11 @@ def login():
 @app.route('/buildMap', methods=['GET', 'POST'])
 def buildGenreGraph():
     if request.method == 'POST':
-        requested_data_container = {}
-        data = EXAMINECSV()
+        # requested_data_container = {}
+        # data = EXAMINECSV()
         post_data = request.get_json()
-        genres = post_data['selectedGenres']
-        year = 1996
-        merged_df = data.get_average_game_ratings_by_year_and_selected_genres(genres)
-        year_and_critic_ratings = data.build_data_from_merged_df(genres, merged_df)
-    return jsonify(year_and_critic_ratings)
-
+        year = post_data['year']
+    return jsonify('5')
 
 
 if __name__ == '__main__':
