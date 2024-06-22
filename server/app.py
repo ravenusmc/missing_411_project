@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 #Importing files that I made: 
+from data import *
 # from support import *
-# from data import *
 # from db import *
 
 # instantiate the app
@@ -42,11 +42,13 @@ def login():
 @app.route('/buildMap', methods=['GET', 'POST'])
 def buildGenreGraph():
     if request.method == 'POST':
-        # requested_data_container = {}
-        # data = EXAMINECSV()
+        data = ExamineCSV()
         post_data = request.get_json()
-        year = post_data['year']
-    return jsonify('5')
+        year = int(post_data['year'])
+        mapDataList = []
+        mapdata = data.get_missing_by_year_for_map(year)
+        mapDataList.append(mapdata)
+    return jsonify(mapdata)
 
 
 if __name__ == '__main__':

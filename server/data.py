@@ -6,6 +6,10 @@ class ExamineCSV():
 
     def __init__(self):
         self.data = pd.read_csv('./data/Missing.csv')
+        # Ensure the dateMissing column is parsed as datetime with error handling
+        self.data['dateMissing'] = pd.to_datetime(self.data['dateMissing'], errors='coerce')
+        # Drop rows with invalid dates
+        self.data = self.data.dropna(subset=['dateMissing'])
 
     def states_with_most_missing_people(self):
         top_5_states = self.data['state/province'].value_counts().head(5)
@@ -21,7 +25,6 @@ class ExamineCSV():
         result_year = min_year - 3
         print(result_year)
         
-    
     def get_max_year(self):
         print(self.data['dateMissing'].max())
     
@@ -60,6 +63,18 @@ class ExamineCSV():
         for coast, count in count_western_eastern.items():
             count_western_eastern_list.append([coast, int(count)])
         print(count_western_eastern_list)
+    
+    def get_missing_by_year_for_map(self, year):
+        # Filter the data to include only rows up to the specified year
+        filtered_data = self.data[self.data['dateMissing'].dt.year <= year]
+        # Group by state and count the number of missing persons
+        result = filtered_data.groupby('state/province').size().reset_index(name='missing_count')
+        return result.to_string(index=False, header=False)
+
+        
+        # I need to get the missing filtered by year and count of people 
+        # Missing by state
+
 
 
 obj = ExamineCSV()

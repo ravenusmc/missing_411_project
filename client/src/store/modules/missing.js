@@ -7,11 +7,12 @@ Vue.use(Vuex);
 
 const data = {
 	dataReceived: false,
+	mapData: [[MI,1]],
 };
 
 const getters = {
 	dataReceived: (state) => state.dataReceived,
-
+	mapData: (state) => state.mapData
 };
 
 const actions = {
@@ -22,7 +23,7 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				console.log(res.data)
-				// commit('setDataReceived', true)
+				commit('setMapData', res.data)
 			})
 			.catch((error) => {
 				console.log(error);
@@ -34,9 +35,10 @@ const actions = {
 
 const mutations = {
 
-	setDataReceived(state, value) {
-		state.dataReceived = value;
+	setMapData(state, value) {
+		state.mapData = value;
 	},
+
 
 };
 
