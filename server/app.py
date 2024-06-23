@@ -45,9 +45,7 @@ def buildGenreGraph():
         data = ExamineCSV()
         post_data = request.get_json()
         year = int(post_data['year'])
-        mapDataList = []
         mapdata = data.get_missing_by_year_for_map(year)
-        mapDataList.append(mapdata)
     return jsonify(mapdata)
 
 

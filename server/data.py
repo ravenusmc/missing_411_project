@@ -69,7 +69,10 @@ class ExamineCSV():
         filtered_data = self.data[self.data['dateMissing'].dt.year <= year]
         # Group by state and count the number of missing persons
         result = filtered_data.groupby('state/province').size().reset_index(name='missing_count')
-        return result.to_string(index=False, header=False)
+        # Convert the result to a dictionary
+        formatted_dict = dict(zip(result['state/province'], result['missing_count']))
+        return formatted_dict  # Return the dictionary directly
+
 
         
         # I need to get the missing filtered by year and count of people 

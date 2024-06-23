@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 const data = {
 	dataReceived: false,
-	mapData: [[MI,1]],
+	mapData: {MI: 1},
 };
 
 const getters = {
@@ -18,11 +18,9 @@ const getters = {
 const actions = {
 
 	submitSelectedYearToServer: ({ commit }, { payload }) => {
-		console.log('Action')
 		const path = 'http://localhost:5000/buildMap';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				commit('setMapData', res.data)
 			})
 			.catch((error) => {
