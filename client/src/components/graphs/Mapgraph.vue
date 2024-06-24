@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     drawMap() {
-      // Clear any previous SVG elements
+      // Clear previous SVG elements
       d3.select(this.$refs.mapContainer).select("svg").remove();
 
       const width = 1000;
