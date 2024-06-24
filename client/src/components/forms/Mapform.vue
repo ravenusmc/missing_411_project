@@ -1,14 +1,17 @@
 <template>
   <div>
-    <form>
-      <div>
-        <label for="year">Enter Year:</label>
-        <input v-model="year" />
-      </div>
-      <div class="form-group">
-        <button type="button" @click="submitSelectedYear">Submit</button>
-      </div>
-    </form>
+    <h3 class="center map-title">Map of Missing</h3>
+    <div class='form-div'>
+      <form>
+        <div>
+          <label for="year">Enter Year:</label>
+          <input v-model="year" />
+        </div>
+        <div class="form-group">
+          <button class='styled-button' type="button" @click="submitSelectedYear">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -19,7 +22,7 @@ export default {
   name: "Mapform",
   data() {
     return {
-      year: 1900,
+      year: 1868,
     };
   },
   methods: {
@@ -40,3 +43,41 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.map-title {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.form-div {
+  display: flex; 
+  justify-content: center;
+}
+
+.styled-button {
+  margin-top: 10px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #4682b4;
+}
+
+.styled-button:active {
+  background-color: #4169e1;
+  transform: scale(0.98);
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.5);
+}
+</style>

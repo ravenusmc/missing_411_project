@@ -4,7 +4,7 @@
 
 <script>
 import * as d3 from "d3";
-import usStates from "@/assets/us-states.json"; // Assuming this contains valid GeoJSON data
+import usStates from "@/assets/us-states.json";
 import { mapGetters } from "vuex";
 
 export default {
