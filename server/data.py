@@ -72,6 +72,11 @@ class ExamineCSV():
         # Convert the result to a dictionary
         formatted_dict = dict(zip(result['state/province'], result['missing_count']))
         return formatted_dict  # Return the dictionary directly
+    
+    def get_data_for_one_coast_for_drilldown(self, coast):
+        filtered_data = self.data[self.data['volume'] == coast]
+        print(filtered_data.head())
+        pass
 
 
         

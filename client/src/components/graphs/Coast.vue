@@ -20,7 +20,7 @@ export default {
     ...mapActions("missing", ["getCoastDrillDown"]),
     async handleBarClick(d) {
       // Prepare the payload
-      const payload = { coast: d[0], count: d[1] };
+      const payload = { coast: d[0] };
       // Await the response from the testMe action
       const response = await this.getCoastDrillDown({ payload });
       // Display the popup with the count and response

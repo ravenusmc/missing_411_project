@@ -51,10 +51,10 @@ def buildGenreGraph():
 @app.route('/getCoastData', methods=['GET', 'POST'])
 def getCoastData():
     if request.method == 'POST':
-        # data = ExamineCSV()
-        # post_data = request.get_json()
-        # year = int(post_data['year'])
-        # mapdata = data.get_missing_by_year_for_map(year)
+        data = ExamineCSV()
+        post_data = request.get_json()
+        coast = post_data['payload']['coast']
+        data.get_data_for_one_coast_for_drilldown(coast)
         return jsonify('50')
 
 
