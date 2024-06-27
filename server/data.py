@@ -75,6 +75,8 @@ class ExamineCSV():
     
     def get_data_for_one_coast_for_drilldown(self, coast):
         filtered_data = self.data[self.data['volume'] == coast]
+        # What values do I need - name - first and last, age, year, state
+        # firstName, lastName, dateMissing, age,  state/province, dateMissing
         print(filtered_data.head())
         pass
 
