@@ -73,19 +73,29 @@ class ExamineCSV():
         formatted_dict = dict(zip(result['state/province'], result['missing_count']))
         return formatted_dict  # Return the dictionary directly
     
+
     def get_data_for_one_coast_for_drilldown(self, coast):
+        # Filter the data for the given coast value
         filtered_data = self.data[self.data['volume'] == coast]
-        # What values do I need - name - first and last, age, year, state
-        # firstName, lastName, dateMissing, age,  state/province, dateMissing
-        print(filtered_data.head())
-        pass
+        print(filtered_data)
+        input()
+        # Select relevant columns
+        selected_columns = filtered_data[['firstName', 'lastName', 'age', 'dateMissing', 'state/province']].copy()
+        # Ensure that the 'dateMissing' column is of datetime type and extract the year
+        selected_columns['yearMissing'] = pd.to_datetime(selected_columns['dateMissing']).dt.year
+        # Select and reorder columns
+        result = selected_columns[['firstName', 'lastName', 'age', 'yearMissing', 'state/province']]
+        # Convert to plain Python data types
+        result = result.astype({
+            'firstName': 'str',
+            'lastName': 'str',
+            'age': 'int',
+            'yearMissing': 'int',
+            'state/province': 'str'
+        })
+        # Convert the DataFrame to a list of dictionaries for JSON serialization
+        result_json_serializable = result.to_dict(orient='records')
+        return result_json_serializable
 
-
-        
-        # I need to get the missing filtered by year and count of people 
-        # Missing by state
-
-
-
-obj = ExamineCSV()
-obj.get_max_year()
+# obj = ExamineCSV()
+# obj.get_max_year()

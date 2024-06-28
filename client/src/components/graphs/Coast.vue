@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="graphFive"></div>
-    <div id="popup" style="display: none;">
+    <div id="popup" style="display: none">
       <div id="content"></div>
     </div>
   </div>
@@ -15,18 +15,44 @@ export default {
   name: "Coast",
   mounted() {
     this.createGraphFive();
+
+    // Add event listener to close popup when clicking outside of it
+    document.addEventListener('click', this.handleOutsideClick);
+  },
+  beforeDestroy() {
+    // Remove event listener when the component is destroyed
+    document.removeEventListener('click', this.handleOutsideClick);
   },
   methods: {
     ...mapActions("missing", ["getCoastDrillDown"]),
     async handleBarClick(d) {
       // Prepare the payload
       const payload = { coast: d[0] };
+      
       // Await the response from the testMe action
       const response = await this.getCoastDrillDown({ payload });
+      console.log(response);
+      
+      // Function to create a table from JSON data
+      function createTableFromJson(data) {
+          let table = '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+          data.forEach(row => {
+              table += `<tr>
+                          <td>${row.firstName}</td>
+                          <td>${row.lastName}</td>
+                          <td>${row.age}</td>
+                          <td>${row.yearMissing}</td>
+                          <td>${row["state/province"]}</td>
+                        </tr>`;
+          });
+          table += '</table>';
+          return table;
+      }
+
       // Display the popup with the count and response
       const popup = document.getElementById("popup");
       const content = document.getElementById("content");
-      content.innerHTML = `Count: ${d[1]}<br>${response}`;
+      content.innerHTML = `Count: ${d[1]}<br>${createTableFromJson(response)}`;
       popup.style.display = "block";
       popup.style.top = `${event.clientY + 10}px`;
       popup.style.left = `${event.clientX + 10}px`;
@@ -115,17 +141,27 @@ export default {
         .attr("font-weight", "bold")
         .text("Missing by Coast");
     },
+    handleOutsideClick(event) {
+      const popup = document.getElementById("popup");
+      if (popup.style.display === "block" && !popup.contains(event.target)) {
+        popup.style.display = "none";
+      }
+    }
   },
 };
 </script>
 
 <style>
 #popup {
-  position: absolute;
-  padding: 10px;
-  background-color: white;
-  border: 1px solid black;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: fixed;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #content {

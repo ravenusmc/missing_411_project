@@ -54,11 +54,8 @@ def getCoastData():
         data = ExamineCSV()
         post_data = request.get_json()
         coast = post_data['payload']['coast']
-        data.get_data_for_one_coast_for_drilldown(coast)
-        return jsonify('50')
-
-
-
+        people_by_coast_data = data.get_data_for_one_coast_for_drilldown(coast)
+        return jsonify(people_by_coast_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
