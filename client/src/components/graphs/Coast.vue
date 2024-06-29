@@ -2,7 +2,9 @@
   <div>
     <div id="graphFive"></div>
     <div id="popup" style="display: none">
-      <div id="content"></div>
+      <div id="content">
+        <!-- Table content goes here -->
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +17,6 @@ export default {
   name: "Coast",
   mounted() {
     this.createGraphFive();
-
     // Add event listener to close popup when clicking outside of it
     document.addEventListener('click', this.handleOutsideClick);
   },
@@ -31,8 +32,7 @@ export default {
       
       // Await the response from the testMe action
       const response = await this.getCoastDrillDown({ payload });
-      console.log(response);
-      
+  
       // Function to create a table from JSON data
       function createTableFromJson(data) {
           let table = '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
@@ -48,11 +48,20 @@ export default {
           table += '</table>';
           return table;
       }
-
       // Display the popup with the count and response
       const popup = document.getElementById("popup");
       const content = document.getElementById("content");
-      content.innerHTML = `Count: ${d[1]}<br>${createTableFromJson(response)}`;
+      content.innerHTML = `${d[0]} Coast<br>${createTableFromJson(response)}`;
+      
+      // Check if the content height exceeds a certain limit 
+      if (response.length > 12) {
+        popup.style.overflowY = "scroll";
+        popup.style.maxHeight = "400px"; // Adjust as needed
+      } else {
+        popup.style.overflowY = "auto";
+        popup.style.maxHeight = "auto";
+      }
+      
       popup.style.display = "block";
       popup.style.top = `${event.clientY + 10}px`;
       popup.style.left = `${event.clientX + 10}px`;
@@ -162,6 +171,8 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    overflow-y: auto; /* Initial overflow-y set to auto */
+    max-height: 400px; /* Maximum height with scroll */
 }
 
 #content {
