@@ -4,16 +4,19 @@
       <div class="title-div">
         <h1 class="center">Missing 411 Study</h1>
         <hr />
-        <h3 class="center">A Project Examing Missing Person Data</h3>
+        <h3 class="center">A Project Examining Missing Person Data</h3>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  name: "HomePage"
+};
 </script>
 
-<style scope>
+<style scoped>
 .main-image {
   height: 80vh;
   background: url("../../assets/images/home.jpg") center/cover no-repeat;
@@ -21,6 +24,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: zoom 20s ease-in-out infinite;
+}
+
+@keyframes zoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .title-div {
@@ -29,4 +42,9 @@
   color: white;
   padding: 20px;
 }
+
+.center {
+  text-align: center;
+}
 </style>
+
