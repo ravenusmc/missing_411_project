@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="sub-title-div">
-      <p>Missing 411</p>
+      <div class="div-for-words">
+        <p>Missing 411</p>
+      </div>
     </div>
     <div class="pic-area">
       <div class="pic-one generic-pic-styling"></div>
@@ -19,16 +21,29 @@ export default {
 
 <style scoped>
 .sub-title-div {
-  border: 2px solid red;
   z-index: 100;
   text-align: center;
   font-size: 3rem;
   letter-spacing: 4.5rem;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
+  left: 0;
+  right: 0;
   top: 850px;
-  right: 105px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.div-for-words {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
 .pic-area {
   display: flex;
   flex-direction: row;
@@ -121,7 +136,15 @@ export default {
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 950px) {
+  .sub-title-div {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1450px;
+  }
+
   .pic-area {
     flex-direction: column;
     align-items: center;

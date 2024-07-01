@@ -18,13 +18,14 @@ export default {
 
 <style scoped>
 .main-image {
+  margin-top: 28px;
   height: 80vh;
   background: url("../../assets/images/home.jpg") center/cover no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: zoom 20s ease-in-out infinite;
+  animation: zoom 12s ease-in-out infinite;
 }
 
 @keyframes zoom {
@@ -41,6 +42,7 @@ export default {
   border-radius: 15px;
   color: white;
   padding: 20px;
+  animation: zoom 12s ease-in-out infinite;
 }
 
 .center {
