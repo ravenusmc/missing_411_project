@@ -18,42 +18,43 @@ export default {
   mounted() {
     this.createGraphFive();
     // Add event listener to close popup when clicking outside of it
-    document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener("click", this.handleOutsideClick);
   },
   beforeDestroy() {
     // Remove event listener when the component is destroyed
-    document.removeEventListener('click', this.handleOutsideClick);
+    document.removeEventListener("click", this.handleOutsideClick);
   },
   methods: {
     ...mapActions("missing", ["getCoastDrillDown"]),
     async handleBarClick(d) {
       // Prepare the payload
       const payload = { coast: d[0] };
-      
+
       // Await the response from the testMe action
       const response = await this.getCoastDrillDown({ payload });
-  
+
       // Function to create a table from JSON data
       function createTableFromJson(data) {
-          let table = '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
-          data.forEach(row => {
-              table += `<tr>
+        let table =
+          '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+        data.forEach((row) => {
+          table += `<tr>
                           <td>${row.firstName}</td>
                           <td>${row.lastName}</td>
                           <td>${row.age}</td>
                           <td>${row.yearMissing}</td>
                           <td>${row["state/province"]}</td>
                         </tr>`;
-          });
-          table += '</table>';
-          return table;
+        });
+        table += "</table>";
+        return table;
       }
       // Display the popup with the count and response
       const popup = document.getElementById("popup");
       const content = document.getElementById("content");
       content.innerHTML = `${d[0]} Coast<br>${createTableFromJson(response)}`;
-      
-      // Check if the content height exceeds a certain limit 
+
+      // Check if the content height exceeds a certain limit
       if (response.length > 12) {
         popup.style.overflowY = "scroll";
         popup.style.maxHeight = "400px"; // Adjust as needed
@@ -61,7 +62,7 @@ export default {
         popup.style.overflowY = "auto";
         popup.style.maxHeight = "auto";
       }
-      
+
       popup.style.display = "block";
       popup.style.top = `${event.clientY + 10}px`;
       popup.style.left = `${event.clientX + 10}px`;
@@ -104,6 +105,38 @@ export default {
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
 
+      // Create a tooltip div
+      let tooltip = d3
+        .select("#graphOne")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("position", "absolute");
+
+      // Tooltip functions
+      let showTooltip = function (event, d) {
+        tooltip
+          .style("opacity", 1)
+          .html("Age: " + d[0] + "<br>Count: " + d[1])
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+
+      let moveTooltip = function (event, d) {
+        tooltip
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+
+      let hideTooltip = function (event, d) {
+        tooltip.style("opacity", 0);
+      };
+
       // Add bars
       svg
         .selectAll("rect")
@@ -117,7 +150,10 @@ export default {
         .attr("fill", "#0B90CA")
         .on("click", async (event, d) => {
           await this.handleBarClick(d);
-        });
+        })
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip);
 
       // Add X axis label
       svg
@@ -155,24 +191,24 @@ export default {
       if (popup.style.display === "block" && !popup.contains(event.target)) {
         popup.style.display = "none";
       }
-    }
+    },
   },
 };
 </script>
 
 <style>
 #popup {
-    display: none;
-    position: fixed;
-    background-color: white;
-    border: 1px solid black;
-    padding: 10px;
-    z-index: 1000;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    overflow-y: auto; /* Initial overflow-y set to auto */
-    max-height: 400px; /* Maximum height with scroll */
+  display: none;
+  position: fixed;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto; /* Initial overflow-y set to auto */
+  max-height: 400px; /* Maximum height with scroll */
 }
 
 #content {

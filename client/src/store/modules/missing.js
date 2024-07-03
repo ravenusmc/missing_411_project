@@ -28,18 +28,6 @@ const actions = {
 			});
 	},
 
-	// testMe: ({ commit }, { payload }) => {
-	// 	console.log("Action")
-	// 	const path = 'http://localhost:5000/getCoastData';
-	// 	axios.post(path, payload)
-	// 		.then((res) => {
-	// 			return res.data
-	// 			// commit('setMapData', res.data)
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log(error);
-	// 		});
-	// },
 
 	async getCoastDrillDown({ commit }, payload) {
 		try {
@@ -52,6 +40,15 @@ const actions = {
 			throw error;
 		}
 	},
+
+	async getTopFiveDrillDown({ commit }, payload) {
+		try {
+			console.log('action')
+		}catch (error) {
+			console.error('Error in testMe action:', error);
+			throw error;
+		}
+	}
 
 
 };

@@ -1,11 +1,17 @@
 <template>
   <div>
     <div id="graphOne"></div>
+    <div id="popup" style="display: none">
+      <div id="content">
+        <!-- Table content goes here -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import * as d3 from "d3";
+import { mapActions } from "vuex";
 
 export default {
   name: "TopFiveGraphs",
@@ -13,8 +19,52 @@ export default {
     this.createGraphOne();
   },
   methods: {
-    createGraphOne() {
+    ...mapActions("missing", ["getTopFiveDrillDown"]),
+    async handleBarClick(d) {
 
+      //Prepare the payload
+      const payload = { state: d[0] };
+
+      console.log(payload)
+
+      // // Await the response from the testMe action
+      const response = await this.getTopFiveDrillDown({ payload });
+
+      // // Function to create a table from JSON data
+      // function createTableFromJson(data) {
+      //   let table =
+      //     '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+      //   data.forEach((row) => {
+      //     table += `<tr>
+      //                     <td>${row.firstName}</td>
+      //                     <td>${row.lastName}</td>
+      //                     <td>${row.age}</td>
+      //                     <td>${row.yearMissing}</td>
+      //                     <td>${row["state/province"]}</td>
+      //                   </tr>`;
+      //   });
+      //   table += "</table>";
+      //   return table;
+      // }
+      // Display the popup with the count and response
+      // const popup = document.getElementById("popup");
+      // const content = document.getElementById("content");
+      // content.innerHTML = `${d[0]} Coast<br>${createTableFromJson(response)}`;
+
+      // // Check if the content height exceeds a certain limit
+      // if (response.length > 12) {
+      //   popup.style.overflowY = "scroll";
+      //   popup.style.maxHeight = "400px"; // Adjust as needed
+      // } else {
+      //   popup.style.overflowY = "auto";
+      //   popup.style.maxHeight = "auto";
+      // }
+
+      // popup.style.display = "block";
+      // popup.style.top = `${event.clientY + 10}px`;
+      // popup.style.left = `${event.clientX + 10}px`;
+    },
+    createGraphOne() {
       // set the dimensions and margins of the graph
       let margin = { top: 40, right: 30, bottom: 50, left: 70 };
       let width = 460 - margin.left - margin.right;
@@ -103,6 +153,9 @@ export default {
         .attr("width", x.bandwidth())
         .attr("height", (d) => height - y(d[1]))
         .attr("fill", "#0B90CA")
+        .on("click", async (event, d) => {
+          await this.handleBarClick(d);
+        })
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
         .on("mouseleave", hideTooltip);
@@ -139,7 +192,6 @@ export default {
 </script>
 
 <style scoped>
-
 .tooltip {
   position: absolute;
   text-align: center;
