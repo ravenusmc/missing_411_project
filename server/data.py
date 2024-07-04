@@ -99,6 +99,11 @@ class ExamineCSV():
         # Convert the DataFrame to a list of dictionaries for JSON serialization
         result_json_serializable = result.to_dict(orient='records')
         return result_json_serializable
+    
+    def get_data_by_state_for_drilldown(self, state):
+        filtered_data = self.data[self.data['state/province'] == state].copy()
+        selected_columns = filtered_data[['firstName', 'lastName', 'age', 'dateMissing', 'state/province']].copy()
+
 
 # obj = ExamineCSV()
 # obj.get_max_year()

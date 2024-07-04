@@ -57,5 +57,14 @@ def getCoastData():
         people_by_coast_data = data.get_data_for_one_coast_for_drilldown(coast)
         return jsonify(people_by_coast_data)
 
+@app.route('/getTopFiveData', methods=['GET', 'POST'])
+def getTopFiveData():
+    if request.method == 'POST':
+        data = ExamineCSV()
+        post_data = request.get_json()
+        state = post_data['payload']['state']
+        state_data = data.get_data_by_state_for_drilldown(state)
+        return jsonify('5')
+
 if __name__ == '__main__':
     app.run(debug=True)
