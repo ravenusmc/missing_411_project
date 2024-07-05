@@ -29,40 +29,32 @@ export default {
 
       // // Await the response from the testMe action
       const response = await this.getTopFiveDrillDown({ payload });
+      console.log(response)
 
       // // Function to create a table from JSON data
-      // function createTableFromJson(data) {
-      //   let table =
-      //     '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
-      //   data.forEach((row) => {
-      //     table += `<tr>
-      //                     <td>${row.firstName}</td>
-      //                     <td>${row.lastName}</td>
-      //                     <td>${row.age}</td>
-      //                     <td>${row.yearMissing}</td>
-      //                     <td>${row["state/province"]}</td>
-      //                   </tr>`;
-      //   });
-      //   table += "</table>";
-      //   return table;
-      // }
+      function createTableFromJson(data) {
+        let table =
+          '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+        data.forEach((row) => {
+          table += `<tr>
+                          <td>${row.firstName}</td>
+                          <td>${row.lastName}</td>
+                          <td>${row.age}</td>
+                          <td>${row.yearMissing}</td>
+                          <td>${row["state/province"]}</td>
+                        </tr>`;
+        });
+        table += "</table>";
+        return table;
+      }
       // Display the popup with the count and response
-      // const popup = document.getElementById("popup");
-      // const content = document.getElementById("content");
-      // content.innerHTML = `${d[0]} Coast<br>${createTableFromJson(response)}`;
+      const popup = document.getElementById("popup");
+      const content = document.getElementById("content");
+      content.innerHTML = `${'Missing people in ' + d[0]}<br>${createTableFromJson(response)}`;
 
-      // // Check if the content height exceeds a certain limit
-      // if (response.length > 12) {
-      //   popup.style.overflowY = "scroll";
-      //   popup.style.maxHeight = "400px"; // Adjust as needed
-      // } else {
-      //   popup.style.overflowY = "auto";
-      //   popup.style.maxHeight = "auto";
-      // }
-
-      // popup.style.display = "block";
-      // popup.style.top = `${event.clientY + 10}px`;
-      // popup.style.left = `${event.clientX + 10}px`;
+      popup.style.display = "block";
+      popup.style.top = `${event.clientY + 10}px`;
+      popup.style.left = `${event.clientX + 10}px`;
     },
     createGraphOne() {
       // set the dimensions and margins of the graph

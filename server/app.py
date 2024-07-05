@@ -64,7 +64,7 @@ def getTopFiveData():
         post_data = request.get_json()
         state = post_data['payload']['state']
         state_data = data.get_data_by_state_for_drilldown(state)
-        return jsonify('5')
+        return jsonify(state_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
