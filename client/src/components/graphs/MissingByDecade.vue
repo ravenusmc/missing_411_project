@@ -13,6 +13,42 @@ export default {
     this.createGraphTwo();
   },
   methods: {
+    async handleBarClick(d) {
+
+      console.log('here')
+
+      //Prepare the payload
+      const payload = { state: d[0] };
+
+      // // Await the response from the testMe action
+      // const response = await this.getTopFiveDrillDown({ payload });
+      // console.log(response)
+
+      // // Function to create a table from JSON data
+      // function createTableFromJson(data) {
+      //   let table =
+      //     '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+      //   data.forEach((row) => {
+      //     table += `<tr>
+      //                     <td>${row.firstName}</td>
+      //                     <td>${row.lastName}</td>
+      //                     <td>${row.age}</td>
+      //                     <td>${row.yearMissing}</td>
+      //                     <td>${row["state/province"]}</td>
+      //                   </tr>`;
+      //   });
+      //   table += "</table>";
+      //   return table;
+      // }
+      // // Display the popup with the count and response
+      // const popup = document.getElementById("popup");
+      // const content = document.getElementById("content");
+      // content.innerHTML = `${'Missing people in ' + d[0]}<br>${createTableFromJson(response)}`;
+
+      // popup.style.display = "block";
+      // popup.style.top = `${event.clientY + 10}px`;
+      // popup.style.left = `${event.clientX + 10}px`;
+    },
     createGraphTwo() {
       // set the dimensions and margins of the graph
       let margin = { top: 40, right: 30, bottom: 50, left: 70 };
@@ -104,6 +140,9 @@ export default {
         .attr("width", x.bandwidth())
         .attr("height", (d) => height - y(d[1]))
         .attr("fill", "#0B90CA")
+        .on("click", async (event, d) => {
+          await this.handleBarClick(d);
+        })
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
         .on("mouseleave", hideTooltip);

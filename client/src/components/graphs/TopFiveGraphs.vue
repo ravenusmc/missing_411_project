@@ -25,11 +25,8 @@ export default {
       //Prepare the payload
       const payload = { state: d[0] };
 
-      console.log(payload)
-
       // // Await the response from the testMe action
       const response = await this.getTopFiveDrillDown({ payload });
-      console.log(response)
 
       // // Function to create a table from JSON data
       function createTableFromJson(data) {
