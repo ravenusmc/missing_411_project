@@ -66,5 +66,17 @@ def getTopFiveData():
         state_data = data.get_data_by_state_for_drilldown(state)
         return jsonify(state_data)
 
+@app.route('/getDecadeDrillDown', methods=['GET', 'POST'])
+def getDecadeDrillDown():
+    if request.method == 'POST':
+        data = ExamineCSV()
+        post_data = request.get_json()
+        print(post_data)
+        # state = post_data['payload']['state']
+        # state_data = data.get_data_by_state_for_drilldown(state)
+        return jsonify('5')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

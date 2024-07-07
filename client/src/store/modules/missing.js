@@ -49,7 +49,17 @@ const actions = {
 			console.error('Error in testMe action:', error);
 			throw error;
 		}
-	}
+	},
+
+	async getDecadeDrillDown({ commit }, payload) {
+		try {
+			const res = await axios.post('http://localhost:5000/getDecadeDrillDown', payload);
+			return res.data;
+		}catch (error) {
+			console.error('Error in testMe action:', error);
+			throw error;
+		}
+	},
 
 
 };

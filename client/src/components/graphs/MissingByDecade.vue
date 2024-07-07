@@ -6,6 +6,7 @@
 
 <script>
 import * as d3 from "d3";
+import { mapActions } from "vuex";
 
 export default {
   name: "MissingByDecade",
@@ -13,16 +14,14 @@ export default {
     this.createGraphTwo();
   },
   methods: {
+    ...mapActions("missing", ["getDecadeDrillDown"]),
     async handleBarClick(d) {
 
-      console.log('here')
-
       //Prepare the payload
-      const payload = { state: d[0] };
+      const payload = { decade: d[0] };
 
       // // Await the response from the testMe action
-      // const response = await this.getTopFiveDrillDown({ payload });
-      // console.log(response)
+      const response = await this.getDecadeDrillDown({ payload });
 
       // // Function to create a table from JSON data
       // function createTableFromJson(data) {
