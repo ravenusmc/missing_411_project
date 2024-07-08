@@ -71,10 +71,9 @@ def getDecadeDrillDown():
     if request.method == 'POST':
         data = ExamineCSV()
         post_data = request.get_json()
-        print(post_data)
-        # state = post_data['payload']['state']
-        # state_data = data.get_data_by_state_for_drilldown(state)
-        return jsonify('5')
+        decade = post_data['payload']['decade']
+        decade_data = data.get_data_by_decade_for_drilldown(decade)
+        return jsonify(decade_data)
 
 
 
