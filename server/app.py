@@ -75,6 +75,16 @@ def getDecadeDrillDown():
         decade_data = data.get_data_by_decade_for_drilldown(decade)
         return jsonify(decade_data)
 
+@app.route('/getAgeDrillDown', methods=['GET', 'POST'])
+def getAgeDrillDown():
+    if request.method == 'POST':
+        data = ExamineCSV()
+        post_data = request.get_json()
+        print(post_data)
+        # decade = post_data['payload']['decade']
+        # decade_data = data.get_data_by_decade_for_drilldown(decade)
+        return jsonify('5')
+
 
 
 if __name__ == '__main__':

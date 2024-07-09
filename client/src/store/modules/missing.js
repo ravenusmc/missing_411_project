@@ -61,6 +61,16 @@ const actions = {
 		}
 	},
 
+	async getAgeDrillDown({ commit }, payload) {
+		try {
+			const res = await axios.post('http://localhost:5000/getAgeDrillDown', payload);
+			return res.data;
+		}catch (error) {
+			console.error('Error in testMe action:', error);
+			throw error;
+		}
+	},
+
 
 };
 
