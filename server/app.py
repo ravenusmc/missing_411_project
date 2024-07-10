@@ -80,9 +80,9 @@ def getAgeDrillDown():
     if request.method == 'POST':
         data = ExamineCSV()
         post_data = request.get_json()
-        print(post_data)
-        # decade = post_data['payload']['decade']
-        # decade_data = data.get_data_by_decade_for_drilldown(decade)
+        age = post_data['payload']['age']
+        age_data = data.get_data_by_age_for_drilldown(age)
+        print(age_data)
         return jsonify('5')
 
 
