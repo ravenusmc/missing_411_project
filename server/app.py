@@ -82,8 +82,7 @@ def getAgeDrillDown():
         post_data = request.get_json()
         age = post_data['payload']['age']
         age_data = data.get_data_by_age_for_drilldown(age)
-        print(age_data)
-        return jsonify('5')
+        return jsonify(age_data)
 
 
 
