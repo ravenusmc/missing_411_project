@@ -71,6 +71,19 @@ const actions = {
 		}
 	},
 
+	async getSexDrillDown({ commit }, payload) {
+		try {
+			const res = await axios.post('http://localhost:5000/getSexDrillDown', payload);
+			return res.data;
+		}catch (error) {
+			console.error('Error in testMe action:', error);
+			throw error;
+		}
+	},
+
+
+	
+
 
 };
 

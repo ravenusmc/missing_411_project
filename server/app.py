@@ -84,6 +84,14 @@ def getAgeDrillDown():
         age_data = data.get_data_by_age_for_drilldown(age)
         return jsonify(age_data)
 
+@app.route('/getSexDrillDown', methods=['GET', 'POST'])
+def getSexDrillDown():
+    if request.method == 'POST':
+        data = ExamineCSV()
+        post_data = request.get_json()
+        sex = post_data['payload']['sex']
+        sex_data = data.get_data_by_sex_for_drilldown(sex)
+        return jsonify(sex_data)
 
 
 if __name__ == '__main__':
