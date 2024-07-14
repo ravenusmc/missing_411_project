@@ -16,6 +16,7 @@ export default {
   methods: {
     ...mapActions("missing", ["getSexDrillDown"]),
     async handleBarClick(d) {
+      
       //Prepare the payload
       const payload = { sex: d[0] };
 
@@ -39,12 +40,7 @@ export default {
         return table;
       }
 
-      let sex = ""
-      if (d[0] == "F") {
-        sex = 'females'
-      }else {
-        sex = 'males'
-      }
+      let sex = d[0] === "F" ? "females" : "males";
 
       // // Display the popup with the count and response
       const popup = document.getElementById("popup");
