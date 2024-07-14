@@ -4,7 +4,7 @@
       <a href="" class="navlink"><router-link class='link-style'  to="/">Home</router-link></a>
       <a href="" class="navlink"><router-link class='link-style' to="/about">About</router-link></a>
       <a href="" class="navlink"><router-link class='link-style' to="/data">The Data</router-link></a>
-      <a href="" class="navlink right">Sign Up</a>
+      <a href="" class="navlink right"><router-link class='link-style' to="/signup">Sign Up</router-link></a>
     </nav>
   </div>
 </template>
