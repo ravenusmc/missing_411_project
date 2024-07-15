@@ -5,18 +5,17 @@
     </div>
     <div class="container">
       <form @submit="signup">
-        <div class="form-group form-inline">
+        <div class="input-area">
           <label for="firstname">First Name:</label>
           <input
             type="text"
             name="firstname"
             v-model="firstName"
-            class="form-control"
             id="firstname"
             placeholder="First Name"
           />
         </div>
-        <div class="form-group form-inline">
+        <div class="input-area">
           <label for="lastName">Last Name:</label>
           <input
             type="text"
@@ -27,7 +26,18 @@
             placeholder="Last Name"
           />
         </div>
-        <div class="form-group form-inline">
+        <div class="input-area">
+          <label for="email">User Name:</label>
+          <input
+            type="text"
+            name="usernamee"
+            class="form-control"
+            id="username"
+            v-model="username"
+            placeholder="User Name"
+          />
+        </div>
+        <div class="input-area">
           <label for="email">Email:</label>
           <input
             type="text"
@@ -38,7 +48,7 @@
             placeholder="Email"
           />
         </div>
-        <div class="form-group form-inline">
+        <div class="input-area">
           <label for="exampleInputPassword1">Password: </label>
           <input
             type="password"
@@ -49,7 +59,7 @@
             placeholder="Password"
           />
         </div>
-        <div class="form-group form-inline">
+        <div class="input-area">
           <label for="exampleInputPassword2">Confirm Password:</label>
           <input
             type="password"
@@ -60,11 +70,10 @@
             placeholder="Confirm Password"
           />
         </div>
-
         <button
           type="submit"
           name="login"
-          class="btn btn-primary form-submit-btn"
+          class="styled-button "
         >
           Submit
         </button>
@@ -82,6 +91,7 @@ export default {
     return {
       firstName: "",
       lastName: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -121,11 +131,13 @@ export default {
 <style scoped>
 .signup-heading {
   margin-top: 30px;
+  font-size: 1.5REM;
 }
 
 .container {
-  width: 500px;
-  clear: both;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 
 .container input {
@@ -134,9 +146,45 @@ export default {
 }
 
 form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-radius: 15px;
-  margin: 50px;
+  margin-bottom: 30px;
   padding: 20px;
-  background-color: rgba(45, 165, 229, 0.7);
+  background-color: rgba(53, 58, 66, 0.7);
+}
+
+.input-area {
+  margin: 10px;
+}
+
+input {
+  height: 25px;
+}
+
+.styled-button {
+  margin-top: 10px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #4682b4;
+}
+
+.styled-button:active {
+  background-color: #4169e1;
+  transform: scale(0.98);
+}
+
+.styled-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.5);
 }
 </style>
