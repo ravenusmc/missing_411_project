@@ -70,13 +70,15 @@
             placeholder="Confirm Password"
           />
         </div>
-        <button
-          type="submit"
-          name="login"
-          class="styled-button "
-        >
-          Submit
-        </button>
+        <div class='button-div'>
+          <button
+            type="submit"
+            name="login"
+            class="styled-button"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -105,7 +107,9 @@ export default {
         alert("First name must be entered");
       } else if (this.lastName === "") {
         alert("Last name must be entered");
-      } else if (this.email === "") {
+      } else if (this.username === "") {
+        alert("Username must be entered");
+      }else if (this.email === "") {
         alert("Email must be entered");
       } else if (this.password === "") {
         alert("Password must be entered");
@@ -117,6 +121,7 @@ export default {
         const payload = {
           firstName: this.firstName,
           lastName: this.lastName,
+          username: this.username,
           email: this.email,
           password: this.password,
           confirmPassword: this.confirmPassword,
@@ -132,10 +137,11 @@ export default {
 .signup-heading {
   margin-top: 30px;
   font-size: 1.5REM;
+  text-align: center;
 }
 
 .container {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -160,6 +166,12 @@ form {
 
 input {
   height: 25px;
+}
+
+.button-div {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: center;
 }
 
 .styled-button {
