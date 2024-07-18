@@ -3,8 +3,9 @@ from flask_cors import CORS
 
 #Importing files that I made: 
 from data import *
+from db import *
 # from support import *
-# from db import *
+
 
 # instantiate the app
 app = Flask(__name__)
@@ -13,8 +14,8 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
+@app.route('/setUpUser', methods=['GET', 'POST'])
+def setUpUser():
     if request.method == 'POST':
         db = Connection()
         post_data = request.get_json()

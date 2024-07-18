@@ -81,10 +81,6 @@ const actions = {
 		}
 	},
 
-
-	
-
-
 };
 
 const mutations = {
