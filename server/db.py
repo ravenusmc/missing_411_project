@@ -1,5 +1,3 @@
-# This file will handle the connection to the database
-
 # Importing files to use in this file.
 import bcrypt
 from bson.son import SON
@@ -15,7 +13,7 @@ class Connection():
                                             port=3306,
                                             database='missing_411')
         self.cursor = self.conn.cursor()
-			
+		
 		def encrypt_pass(self, post_data):
         password = post_data['password'].encode('utf-8')
         hashed = bcrypt.hashpw(password, bcrypt.gensalt())
