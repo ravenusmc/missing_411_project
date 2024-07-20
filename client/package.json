@@ -12,6 +12,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "axios": "^1.7.2",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
     "d3": "^7.9.0",
     "d3-legend": "^1.0.0",
     "topojson": "^3.0.2",

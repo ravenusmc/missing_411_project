@@ -13,3 +13,10 @@ CREATE TABLE users
   password VARCHAR(240) NOT NUll,
   PRIMARY KEY(user_id)
 );
+
+CREATE USER 'ted'@'localhost' IDENTIFIED BY 'pass';
+
+CREATE USER 'gus'@'localhost' IDENTIFIED BY 'pass';
+
+USE MYSQL;
+GRANT ALL PRIVILEGES ON missing_411.* TO 'gus'@'localhost';

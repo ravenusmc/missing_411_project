@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-#Importing files that I made: 
+# Importing files that I made:
 from data import *
 from db import *
 # from support import *
@@ -14,6 +14,7 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+
 @app.route('/setUpUser', methods=['GET', 'POST'])
 def setUpUser():
     if request.method == 'POST':
@@ -22,6 +23,7 @@ def setUpUser():
         hashed = db.encrypt_pass(post_data)
         user_created = db.insert(post_data, hashed)
         return jsonify('5')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -40,6 +42,7 @@ def login():
         login_values['user'] = user
     return jsonify(login_values)
 
+
 @app.route('/buildMap', methods=['GET', 'POST'])
 def buildGenreGraph():
     if request.method == 'POST':
@@ -48,6 +51,7 @@ def buildGenreGraph():
         year = int(post_data['year'])
         mapdata = data.get_missing_by_year_for_map(year)
     return jsonify(mapdata)
+
 
 @app.route('/getCoastData', methods=['GET', 'POST'])
 def getCoastData():
@@ -58,6 +62,7 @@ def getCoastData():
         people_by_coast_data = data.get_data_for_one_coast_for_drilldown(coast)
         return jsonify(people_by_coast_data)
 
+
 @app.route('/getTopFiveData', methods=['GET', 'POST'])
 def getTopFiveData():
     if request.method == 'POST':
@@ -66,6 +71,7 @@ def getTopFiveData():
         state = post_data['payload']['state']
         state_data = data.get_data_by_state_for_drilldown(state)
         return jsonify(state_data)
+
 
 @app.route('/getDecadeDrillDown', methods=['GET', 'POST'])
 def getDecadeDrillDown():
@@ -76,6 +82,7 @@ def getDecadeDrillDown():
         decade_data = data.get_data_by_decade_for_drilldown(decade)
         return jsonify(decade_data)
 
+
 @app.route('/getAgeDrillDown', methods=['GET', 'POST'])
 def getAgeDrillDown():
     if request.method == 'POST':
@@ -84,6 +91,7 @@ def getAgeDrillDown():
         age = post_data['payload']['age']
         age_data = data.get_data_by_age_for_drilldown(age)
         return jsonify(age_data)
+
 
 @app.route('/getSexDrillDown', methods=['GET', 'POST'])
 def getSexDrillDown():

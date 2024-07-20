@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import axios from 'axios';
 import store from '@/store/index';
 
+
 Vue.use(Vuex);
 
 const data = {
@@ -43,6 +44,7 @@ const actions = {
 
 	async getTopFiveDrillDown({ commit }, payload) {
 		try {
+			console.log('here')
 			const res = await axios.post('http://localhost:5000/getTopFiveData', payload);
 			return res.data;
 		}catch (error) {
