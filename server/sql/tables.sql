@@ -20,3 +20,5 @@ CREATE USER 'gus'@'localhost' IDENTIFIED BY 'pass';
 
 USE MYSQL;
 GRANT ALL PRIVILEGES ON missing_411.* TO 'gus'@'localhost';
+
+DELETE FROM users WHERE username = 'Gus';
