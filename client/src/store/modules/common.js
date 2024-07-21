@@ -31,6 +31,25 @@ const actions = {
 	},
 
 
+	loginUser: ({ commit }, { payload }) => {
+		console.log(payload)
+		const path = 'http://localhost:5000/login';
+		axios.post(path, payload)
+			.then((res) => {
+				if (res.data.login_flag) {
+					// commit('session/setUserObject', res.data.user, { root: true })
+					commit('setLoginFlag', res.data.login_flag);
+					router.push({ name: 'GameData' });
+				}
+				commit('setNoPasswordMatch', res.data.Password_no_match);
+				commit('setUserNotFound', res.data.Not_found);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	},
+
+
 };
 
 const mutations = {
