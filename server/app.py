@@ -30,19 +30,18 @@ def login():
     if request.method == 'POST':
         db = Connection()
         post_data = request.get_json()
-        print(post_data)
-        # email = post_data['email']
-        # password = post_data['password']
-        # login_values = {}
-        # # Checking to see if the user is in the database
-        # login_flag, not_found, password_no_match, user = db.verify_user(
-        #     email, password)
-        # login_values['login_flag'] = login_flag
-        # login_values['Not_found'] = not_found
-        # login_values['Password_no_match'] = password_no_match
-        # login_values['user'] = user
-    # return jsonify(login_values)
-    return jsonify('5')
+        email = post_data['email']
+        password = post_data['password']
+        login_values = {}
+        # Checking to see if the user is in the database
+        login_flag, not_found, password_no_match, user = db.verify_user(
+            email, password)
+        login_values['login_flag'] = login_flag
+        login_values['Not_found'] = not_found
+        login_values['Password_no_match'] = password_no_match
+        login_values['user'] = user
+        print(login_values)
+    return jsonify(login_values)
 
 
 @app.route('/buildMap', methods=['GET', 'POST'])
