@@ -40,7 +40,7 @@ const actions = {
 					console.log(res.data)
 					// commit('session/setUserObject', res.data.user, { root: true })
 					commit('setLoginFlag', res.data.login_flag);
-					// router.push({ name: 'GameData' });
+					router.push({ name: 'missing' });
 				}
 				commit('setNoPasswordMatch', res.data.Password_no_match);
 				commit('setUserNotFound', res.data.Not_found);
@@ -55,8 +55,8 @@ const actions = {
 
 const mutations = {
 
-	setMapData(state, value) {
-		state.mapData = value;
+	setLoginFlag(state, value) {
+		state.loginFlag = value;
 	},
 
 
