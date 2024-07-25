@@ -4,7 +4,6 @@ from flask_cors import CORS
 # Importing files that I made:
 from data import *
 from db import *
-# from support import *
 
 
 # instantiate the app
@@ -14,7 +13,7 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-
+# route to set up new user
 @app.route('/setUpUser', methods=['GET', 'POST'])
 def setUpUser():
     if request.method == 'POST':
@@ -24,7 +23,7 @@ def setUpUser():
         user_created = db.insert(post_data, hashed)
         return jsonify('5')
 
-
+# Route to login in new user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
