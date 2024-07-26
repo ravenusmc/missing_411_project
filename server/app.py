@@ -41,7 +41,7 @@ def login():
         login_values['user'] = user
     return jsonify(login_values)
 
-
+# Route to build the map 
 @app.route('/buildMap', methods=['GET', 'POST'])
 def buildGenreGraph():
     if request.method == 'POST':
