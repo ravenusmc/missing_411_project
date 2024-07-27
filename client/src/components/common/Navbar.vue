@@ -7,17 +7,29 @@
         <a href="" class="navlink"><router-link class="link-style" to="/data">The Data</router-link></a>
       </div>
       <div class="navlinks-right">
-        <a href="" class="navlink"><router-link class="link-style" to="/login">Login</router-link></a>
-        <a href="" class="navlink"><router-link class="link-style" to="/signup">Sign Up</router-link></a>
+        <a v-if="!loginFlag" class="navlink"><router-link class="link-style" to="/login">Login</router-link></a>
+        <a v-if="!loginFlag" class="navlink"><router-link class="link-style" to="/signup">Sign Up</router-link></a>
+        <a v-if="loginFlag" class="navlink" @click.prevent="logout"><router-link class="link-style" to="/">Log Out</router-link></a>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  name: 'Navbar'
-}
+  name: "navbar",
+  computed: {
+    ...mapGetters("common", ["loginFlag"]),
+  },
+  methods: {
+    ...mapActions(["common/logout"]),
+    logout: function () {
+      this.$store.dispatch("common/logout");
+    },
+  },
+};
 </script>
 
 <style scoped>

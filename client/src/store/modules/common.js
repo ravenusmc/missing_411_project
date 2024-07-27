@@ -32,22 +32,30 @@ const actions = {
 
 
 	loginUser: ({ commit }, { payload }) => {
-		console.log(payload)
 		const path = 'http://localhost:5000/login';
 		axios.post(path, payload)
 			.then((res) => {
 				if (res.data.login_flag) {
-					console.log(res.data)
+					// Not sure if I'll set up a user at all
 					// commit('session/setUserObject', res.data.user, { root: true })
 					commit('setLoginFlag', res.data.login_flag);
 					router.push({ name: 'missing' });
 				}
-				commit('setNoPasswordMatch', res.data.Password_no_match);
-				commit('setUserNotFound', res.data.Not_found);
+				// commit('setNoPasswordMatch', res.data.Password_no_match);
+				// commit('setUserNotFound', res.data.Not_found);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
+	},
+
+	logout: ({ commit }) => {
+		// let userNotFound = false;
+		// let passwordNoMatch = false;
+		let loginFlag = false;
+		// commit('setUserNotFound', userNotFound);
+		// commit('setNoPasswordMatch', passwordNoMatch);
+		commit('setLoginFlag', false);
 	},
 
 
