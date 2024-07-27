@@ -32,7 +32,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  top: 850px;
+  top: 110%;
   margin-left: auto;
   margin-right: auto;
 }
