@@ -7,9 +7,8 @@
             <h3 v-if="userNotFound" class="center login-problem">
               User is not found.
               <br />
-              <a
-                ><router-link class="alert" to="/sign_up"
-                  >sign up.</router-link
+              <a><router-link class="alert" to="/signup"
+                  >sign up</router-link
                 ></a
               >
             </h3>
@@ -89,7 +88,7 @@
   }
   
   .login-problem {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
   
   .password-invalid-text {
@@ -135,6 +134,12 @@
   
   .input {
     width: 300px; /* Adjust the width as needed */
+  }
+
+  .alert {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
   }
 
   .styled-button {

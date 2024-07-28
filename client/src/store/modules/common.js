@@ -41,8 +41,8 @@ const actions = {
 					commit('setLoginFlag', res.data.login_flag);
 					router.push({ name: 'missing' });
 				}
-				// commit('setNoPasswordMatch', res.data.Password_no_match);
-				// commit('setUserNotFound', res.data.Not_found);
+				commit('setNoPasswordMatch', res.data.Password_no_match);
+				commit('setUserNotFound', res.data.Not_found);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -50,14 +50,10 @@ const actions = {
 	},
 
 	logout: ({ commit }) => {
-		// let userNotFound = false;
-		// let passwordNoMatch = false;
-		let loginFlag = false;
-		// commit('setUserNotFound', userNotFound);
-		// commit('setNoPasswordMatch', passwordNoMatch);
+		commit('setUserNotFound', false);
+		commit('setNoPasswordMatch', false);
 		commit('setLoginFlag', false);
 	},
-
 
 };
 
@@ -67,6 +63,13 @@ const mutations = {
 		state.loginFlag = value;
 	},
 
+	setNoPasswordMatch(state, value) {
+		state.passwordNoMatch = value;
+	},
+
+	setUserNotFound(state, value) {
+		state.userNotFound = value;
+	}
 
 };
 
