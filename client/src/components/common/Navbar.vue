@@ -2,9 +2,9 @@
   <div>
     <nav class="navbar">
       <div class="navlinks-left">
-        <a href="" class="navlink"><router-link class="link-style" to="/">Home</router-link></a>
-        <a href="" class="navlink"><router-link class="link-style" to="/about">About</router-link></a>
-        <a href="" class="navlink"><router-link class="link-style" to="/data">The Data</router-link></a>
+        <a class="navlink"><router-link class="link-style" to="/">Home</router-link></a>
+        <a class="navlink"><router-link class="link-style" to="/about">About</router-link></a>
+        <a v-if="loginFlag" class="navlink"><router-link class="link-style" to="/data">The Data</router-link></a>
       </div>
       <div class="navlinks-right">
         <a v-if="!loginFlag" class="navlink"><router-link class="link-style" to="/login">Login</router-link></a>

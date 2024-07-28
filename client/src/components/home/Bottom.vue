@@ -4,9 +4,9 @@
     <div class='pic-div'>
       <div class="main-div">
         <div class="link-div">
-          <a><router-link class="link-appearance" to="/">Login</router-link></a>
+          <a><router-link class="link-appearance" to="/login">Login</router-link></a>
           <hr />
-          <a><router-link class="" to="/">Sign Up</router-link></a>
+          <a><router-link class="" to="/signup">Sign Up</router-link></a>
         </div>
       </div>
     </div>
@@ -61,5 +61,9 @@ a {
   color: white;
   font-size: 2rem;
   text-transform: uppercase;
+}
+
+hr {
+  width: 35%;
 }
 </style>
