@@ -72,9 +72,9 @@ const actions = {
 		}
 	},
 
-	async getSexDrillDown({ commit }, payload) {
+	async getMapDrillDown({ commit }, payload) {
 		try {
-			const res = await axios.post('http://localhost:5000/getSexDrillDown', payload);
+			const res = await axios.post('http://localhost:5000/getMapDrillDown', payload);
 			return res.data;
 		}catch (error) {
 			console.error('Error in testMe action:', error);

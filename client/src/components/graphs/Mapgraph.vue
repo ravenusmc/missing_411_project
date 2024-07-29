@@ -5,7 +5,7 @@
 <script>
 import * as d3 from "d3";
 import usStates from "@/assets/us-states.json";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: 'MapGraph',
@@ -24,6 +24,40 @@ export default {
     this.drawMap();
   },
   methods: {
+    ...mapActions("missing", ["getMapDrillDown"]),
+    async handleBarClick(d) {
+
+    //Prepare the payload
+    const payload = { state: d['properties']['postal'] };
+
+    // Await the response from the action
+    const response = await this.getMapDrillDown({ payload });
+
+    // Function to create a table from JSON data
+    // function createTableFromJson(data) {
+    //   let table =
+    //     '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+    //   data.forEach((row) => {
+    //     table += `<tr>
+    //                     <td>${row.firstName}</td>
+    //                     <td>${row.lastName}</td>
+    //                     <td>${row.age}</td>
+    //                     <td>${row.yearMissing}</td>
+    //                     <td>${row["state/province"]}</td>
+    //                   </tr>`;
+    //   });
+    //   table += "</table>";
+    //   return table;
+    // }
+    // Display the popup with the count and response
+    // const popup = document.getElementById("popup");
+    // const content = document.getElementById("content");
+    // content.innerHTML = `${'Missing people in ' + d[0]}<br>${createTableFromJson(response)}`;
+
+    // popup.style.display = "block";
+    // popup.style.top = `${event.clientY + 10}px`;
+    // popup.style.left = `${event.clientX + 10}px`;
+},
     drawMap() {
       // Clear previous SVG elements
       d3.select(this.$refs.mapContainer).select("svg").remove();
@@ -57,6 +91,9 @@ export default {
           return value ? colorScale(value) : "#ccc";
         })
         .attr("d", path)
+        .on("click", async (event, d) => {
+          await this.handleBarClick(d);
+        })
         .on("mouseover", (event, d) => {
           const stateAbbr = d.properties.postal;
           const value = this.mapData[stateAbbr] || 0;
