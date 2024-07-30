@@ -100,7 +100,15 @@ def getSexDrillDown():
         sex = post_data['payload']['sex']
         sex_data = data.get_data_by_sex_for_drilldown(sex)
         return jsonify(sex_data)
-
+    
+@app.route('/getMapDrillDown', methods=['GET', 'POST'])
+def getMapDrillDown():
+    if request.method == 'POST':
+        data = ExamineCSV()
+        post_data = request.get_json()
+        state = post_data['payload']['state']
+        state_data = data.get_data_by_state_for_drilldown(state)
+        return jsonify(state_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

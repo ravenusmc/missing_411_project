@@ -34,30 +34,30 @@ export default {
     const response = await this.getMapDrillDown({ payload });
 
     // Function to create a table from JSON data
-    // function createTableFromJson(data) {
-    //   let table =
-    //     '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
-    //   data.forEach((row) => {
-    //     table += `<tr>
-    //                     <td>${row.firstName}</td>
-    //                     <td>${row.lastName}</td>
-    //                     <td>${row.age}</td>
-    //                     <td>${row.yearMissing}</td>
-    //                     <td>${row["state/province"]}</td>
-    //                   </tr>`;
-    //   });
-    //   table += "</table>";
-    //   return table;
-    // }
+    function createTableFromJson(data) {
+      let table =
+        '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Year Missing</th><th>State</th></tr>';
+      data.forEach((row) => {
+        table += `<tr>
+                        <td>${row.firstName}</td>
+                        <td>${row.lastName}</td>
+                        <td>${row.age}</td>
+                        <td>${row.yearMissing}</td>
+                        <td>${row["state/province"]}</td>
+                      </tr>`;
+      });
+      table += "</table>";
+      return table;
+    }
     // Display the popup with the count and response
-    // const popup = document.getElementById("popup");
-    // const content = document.getElementById("content");
-    // content.innerHTML = `${'Missing people in ' + d[0]}<br>${createTableFromJson(response)}`;
+    const popup = document.getElementById("popup");
+    const content = document.getElementById("content");
+    content.innerHTML = `${'Missing people in ' + d['properties']['postal']}<br>${createTableFromJson(response)}`;
 
-    // popup.style.display = "block";
-    // popup.style.top = `${event.clientY + 10}px`;
-    // popup.style.left = `${event.clientX + 10}px`;
-},
+    popup.style.display = "block";
+    popup.style.top = `${event.clientY + 10}px`;
+    popup.style.left = `${event.clientX + 10}px`;
+  },
     drawMap() {
       // Clear previous SVG elements
       d3.select(this.$refs.mapContainer).select("svg").remove();
