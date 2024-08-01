@@ -14085,7 +14085,8 @@
 			"type": "Feature",
 			"id": "53",
 			"properties": {
-				"name": "Washington"
+				"name": "Washington",
+				"postal": "WA"
 			},
 			"geometry": {
 				"type": "MultiPolygon",

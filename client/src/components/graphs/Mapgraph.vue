@@ -11,7 +11,8 @@ export default {
   name: 'MapGraph',
   computed: {
     ...mapGetters("missing", [
-      "mapData"
+      "mapData",
+      "year"
     ]),
   },
   watch: {
@@ -28,7 +29,9 @@ export default {
     async handleBarClick(d) {
 
     //Prepare the payload
-    const payload = { state: d['properties']['postal'] };
+    const payload = { state: d['properties']['postal'], year: this.year };
+
+    console.log(payload)
 
     // Await the response from the action
     const response = await this.getMapDrillDown({ payload });

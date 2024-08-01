@@ -107,7 +107,8 @@ def getMapDrillDown():
         data = ExamineCSV()
         post_data = request.get_json()
         state = post_data['payload']['state']
-        state_data = data.get_data_by_state_for_drilldown(state)
+        year = post_data['payload']['year']
+        state_data = data.get_data_for_map_drilldown(state, year)
         return jsonify(state_data)
 
 if __name__ == '__main__':

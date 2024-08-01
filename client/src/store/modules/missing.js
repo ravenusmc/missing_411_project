@@ -9,16 +9,19 @@ Vue.use(Vuex);
 const data = {
 	dataReceived: false,
 	mapData: {MI: 1},
+	year: 1868,
 };
 
 const getters = {
 	dataReceived: (state) => state.dataReceived,
-	mapData: (state) => state.mapData
+	mapData: (state) => state.mapData,
+	year: (state) => state.year,
 };
 
 const actions = {
 
 	submitSelectedYearToServer: ({ commit }, { payload }) => {
+		commit('setYear', payload['year'])
 		const path = 'http://localhost:5000/buildMap';
 		axios.post(path, payload)
 			.then((res) => {
@@ -29,7 +32,6 @@ const actions = {
 			});
 	},
 
-
 	async getCoastDrillDown({ commit }, payload) {
 		try {
 			// Perform an asynchronous operation, for example, an API call
@@ -37,7 +39,7 @@ const actions = {
 			// Return the data from the response
 			return res.data;
 		} catch (error) {
-			console.error('Error in testMe action:', error);
+			console.error('Error in getCoastDrillDown action:', error);
 			throw error;
 		}
 	},
@@ -47,7 +49,7 @@ const actions = {
 			const res = await axios.post('http://localhost:5000/getTopFiveData', payload);
 			return res.data;
 		}catch (error) {
-			console.error('Error in testMe action:', error);
+			console.error('Error in getTopFiveDrillDown action:', error);
 			throw error;
 		}
 	},
@@ -57,7 +59,7 @@ const actions = {
 			const res = await axios.post('http://localhost:5000/getDecadeDrillDown', payload);
 			return res.data;
 		}catch (error) {
-			console.error('Error in testMe action:', error);
+			console.error('Error in getDecadeDrillDown action:', error);
 			throw error;
 		}
 	},
@@ -67,8 +69,17 @@ const actions = {
 			const res = await axios.post('http://localhost:5000/getAgeDrillDown', payload);
 			return res.data;
 		}catch (error) {
-			console.error('Error in testMe action:', error);
+			console.error('Error in getAgeDrillDown action:', error);
 			throw error;
+		}
+	},
+
+	async getSexDrillDown({ commit }, payload) {
+		try {
+			const res = await axios.post('http://localhost:5000/getSexDrillDown', payload);
+			return res.data;
+		}catch (error) {
+			console.error('Error in getSexDrillDown action:', error);
 		}
 	},
 
@@ -77,7 +88,7 @@ const actions = {
 			const res = await axios.post('http://localhost:5000/getMapDrillDown', payload);
 			return res.data;
 		}catch (error) {
-			console.error('Error in testMe action:', error);
+			console.error('Error in getMapDrillDown action:', error);
 			throw error;
 		}
 	},
@@ -90,6 +101,9 @@ const mutations = {
 		state.mapData = value;
 	},
 
+	setYear(state, value) {
+		state.year = value;
+	},
 
 };
 

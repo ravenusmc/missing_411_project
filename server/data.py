@@ -197,5 +197,38 @@ class ExamineCSV():
         result_json_serializable = result.to_dict(orient='records')
         return result_json_serializable
 
+    def get_data_for_map_drilldown(self, state, year): 
+        filtered_data = self.data[self.data['state/province'] == state].copy()
+        selected_columns = filtered_data[['firstName', 'lastName', 'age', 'dateMissing', 'state/province']].copy()
+        
+        # Ensure that the 'dateMissing' column is of datetime type and extract the year
+        selected_columns['yearMissing'] = pd.to_datetime(selected_columns['dateMissing'], errors='coerce').dt.year
+
+        # Handle missing values in 'yearMissing' column
+        selected_columns['yearMissing'] = selected_columns['yearMissing'].fillna(0).astype(int)
+        
+        # Filter data by the given year
+        selected_columns = selected_columns[selected_columns['yearMissing'] <= int(year)]
+        
+        # Handle missing values in 'age' column (if needed)
+        selected_columns['age'] = selected_columns['age'].fillna(0).astype(int)
+        
+        # Select and reorder columns
+        result = selected_columns[['firstName', 'lastName', 'age', 'yearMissing', 'state/province']]
+        
+        # Convert to plain Python data types
+        result = result.astype({
+            'firstName': 'str',
+            'lastName': 'str',
+            'age': 'int',
+            'yearMissing': 'int',
+            'state/province': 'str'
+        })
+        
+        # Convert the DataFrame to a list of dictionaries for JSON serialization
+        result_json_serializable = result.to_dict(orient='records')
+        return result_json_serializable
+
+
 # obj = ExamineCSV()
 # obj.get_max_year()
