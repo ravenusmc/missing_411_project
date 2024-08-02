@@ -20,20 +20,20 @@ const routes = [
     path: '/data',
     name: 'missing',
     component: () => import('../views/Missing.vue'),
-    // beforeEnter: (to, from, next) => {
-    //   if (store.state.common.loginFlag === false) {
-    //     next('/login');
-    //   } else {
-    //     next();
-    //   }
-    // },
-    // beforeRouteLeave: (to, from, next) => {
-    //   if (store.state.common.loginFlag === false) {
-    //     next('/login');
-    //   } else {
-    //     next();
-    //   }
-    // },
+    beforeEnter: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
+    beforeRouteLeave: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
   },
   {
     path: '/signup',
