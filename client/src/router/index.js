@@ -20,6 +20,7 @@ const routes = [
     path: '/data',
     name: 'missing',
     component: () => import('../views/Missing.vue'),
+    // The code below keeps the user from going to the missing page without signing up
     beforeEnter: (to, from, next) => {
       if (store.state.common.loginFlag === false) {
         next('/login');
